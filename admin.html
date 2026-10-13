@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><title>Administración | Adri Cambios</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="admin.css"></head>
+<body class="admin-body"><header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">A<span>C</span></span><span class="brand-name">ADRI <b>CAMBIOS</b><small>PANEL DE ADMINISTRACIÓN</small></span></a><nav><a href="index.html">Ver sitio ↗</a></nav></header>
+<main class="admin-wrap">
+<section class="admin-warning"><b>Importante:</b> esta es una versión estática para pruebas. Los cambios se guardan únicamente en el navegador de este dispositivo y no se sincronizan con los clientes. La clave de este panel no es una barrera de seguridad real. No introduzcas información bancaria confidencial.</section>
+<section class="login-panel" id="loginPanel"><p class="eyebrow">ACCESO DE PRUEBA</p><h1>Administrar tu sitio</h1><p class="muted">Crea una clave local para ocultar el panel en este navegador. No es una autenticación segura.</p><form id="loginForm"><label for="adminPin">Clave local del panel</label><input id="adminPin" type="password" required minlength="4" placeholder="Crea o escribe tu clave local"><button class="button gold-button" type="submit">Entrar al panel ↗</button><p id="loginError" class="error"></p></form><button id="resetPin" class="subtle-button">Configurar / restablecer clave local</button></section>
+<section id="adminApp" hidden>
+<div class="admin-title"><div><p class="eyebrow">CONTROL DEL NEGOCIO</p><h1>Configuración</h1></div><button id="logout" class="subtle-button">Bloquear panel</button></div>
+<form id="settingsForm" class="settings-card">
+<h2>Tasas de cambio</h2><div class="admin-grid">
+<div><label for="todayRateInput">Tasa de hoy</label><input id="todayRateInput" type="number" min="0" step="any" required></div>
+<div><label for="tomorrowRateInput">Tasa de mañana</label><input id="tomorrowRateInput" type="number" min="0" step="any" required></div>
+<div><label for="fromCurrency">Moneda que envía el cliente</label><select id="fromCurrency"></select></div>
+<div><label for="toCurrency">Moneda que recibe el destinatario</label><select id="toCurrency"></select></div>
+<div><label for="updatedAt">Fecha / texto de actualización</label><input id="updatedAt" placeholder="Ej. 13 oct. 2026, 2:00 p. m."></div>
+<div><label for="tomorrowDate">Vigencia de tasa de mañana</label><input id="tomorrowDate" placeholder="Ej. 14 oct. 2026"></div>
+</div>
+<h2>Comisión y límites</h2>
+<div class="fee-tool">
+  <div class="fee-tool-heading"><span class="fee-icon">％</span><div><b>Calculadora interna de comisiones</b><small>Prueba cuánto cobras y cuánto paga el cliente antes de guardar.</small></div></div>
+  <div class="admin-grid">
+    <div><label for="feeTestAmount">Monto de ejemplo</label><input id="feeTestAmount" type="number" min="0" step="any" value="100"></div>
+    <div><label>Comisión calculada</label><output id="feeTestCommission">8.00 COP</output></div>
+    <div><label>Total que paga el cliente</label><output id="feeTestTotal">108.00 COP</output></div>
+    <div><label>Porcentaje efectivo</label><output id="feeTestPercent">8%</output></div>
+  </div>
+</div>
+<div class="admin-grid">
+<div><label for="feeType">Tipo de comisión</label><select id="feeType"><option value="fixed">Monto fijo</option><option value="percent">Porcentaje del envío</option></select></div>
+<div><label for="feeValue">Valor de comisión</label><input id="feeValue" type="number" min="0" step="any" required></div>
+<div><label for="minAmount">Monto mínimo (0 = sin límite)</label><input id="minAmount" type="number" min="0" step="any"></div>
+<div><label for="maxAmount">Monto máximo (0 = sin límite)</label><input id="maxAmount" type="number" min="0" step="any"></div>
+</div>
+<h2>Opciones del servicio</h2>
+<div class="admin-grid">
+<div class="full-field"><label for="currencies">Monedas disponibles (separadas por coma)</label><textarea id="currencies" rows="3" required placeholder="COP, USD, EUR, CLP, PEN, VES"></textarea><small>Escribe los códigos de moneda separados por comas.</small></div>
+<div class="full-field"><label for="methods">Métodos de pago/entrega (separados por coma)</label><textarea id="methods" rows="4" required placeholder="Transferencia bancaria, Pago móvil, Binance Pay"></textarea><small>Escribe cada método separado por una coma. Puedes añadir, editar o eliminar nombres aquí.</small></div>
+<div><label for="whatsapp">WhatsApp con código de país (solo números)</label><input id="whatsapp" required inputmode="numeric" placeholder="584145811952"></div>
+<div><label for="note">Nota informativa</label><input id="note" placeholder="Confirma la tasa antes de pagar"></div>
+</div>
+<div class="admin-actions"><button class="button gold-button" type="submit">Guardar cambios en este navegador</button><button class="button danger-button" type="button" id="resetDefaults">Restaurar valores iniciales</button></div><p id="saveStatus" role="status" class="save-status"></p>
+</form>
+<section class="settings-card export-card"><h2>Publicar cambios en GitHub Pages</h2><p>Los cambios guardados aquí no modifican automáticamente los archivos publicados. Usa este botón para descargar un archivo de configuración y conserva una copia; para que todos los visitantes vean nuevos valores, será necesario actualizar la configuración publicada.</p><button id="publishConfig" class="button gold-button" type="button">Generar archivo para publicar en GitHub ↓</button>
+<button id="exportConfig" class="button outline-button" type="button">Exportar copia JSON ↓</button><button id="importConfig" class="button outline-button" type="button">Importar copia JSON ↑</button><input id="importFile" type="file" accept=".json,application/json" hidden></section>
+</section>
+</main><script src="site-config.js"></script><script src="admin.js"></script></body></html>
