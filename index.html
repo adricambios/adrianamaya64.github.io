@@ -1,92 +1,662 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0b0b">
-<meta name="description" content="Adrian Cambio: remesas hacia Venezuela, cambio de divisas y envíos internacionales.">
+<meta name="theme-color" content="#0a0a0a">
 <title>Adrian Cambio | Remesas y Divisas</title>
 <style>
-:root{--bg:#090909;--panel:#141414;--panel2:#1c1a15;--gold:#d8b45a;--gold2:#f3d88b;--text:#f5f2e9;--muted:#b5b1a7;--line:#40351e;--green:#25d366}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,.btn{cursor:pointer;border:0;border-radius:12px;padding:12px 17px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}button:hover,.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn-gold,button.primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#17130a}.btn-outline{border:1px solid var(--gold);color:var(--gold);background:transparent}.btn-green{background:var(--green);color:#06250f}.wrap{width:min(1120px,92%);margin:auto}.topbar{border-bottom:1px solid var(--line);background:#0d0d0d}.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:1.2px}.brand-mark{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--gold2),#a77c27);color:#111;font-size:22px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:2px;font-weight:650}.navlinks{display:flex;gap:22px;color:#ddd;font-size:14px}.navlinks a:hover{color:var(--gold)}.hero{padding:76px 0 55px;background:radial-gradient(ellipse at 85% 15%,#342712 0,transparent 34%),linear-gradient(180deg,#0b0b0b,#10100e)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}.eyebrow{color:var(--gold);font-size:12px;font-weight:850;letter-spacing:2.5px;text-transform:uppercase}.hero h1{font-size:clamp(36px,5.3vw,64px);line-height:1.04;letter-spacing:-1.7px;margin:14px 0 18px}.gold{color:var(--gold2)}.hero p{color:var(--muted);max-width:590px;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;color:#d1c9b5;font-size:13px}.trust span:before{content:"✓";color:var(--gold);font-weight:900;margin-right:7px}.hero-card,.card{background:linear-gradient(145deg,#191919,#111);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 18px 55px #0005}.hero-card h3,.card h3{margin:0 0 6px;font-size:20px}.muted{color:var(--muted)}.rate-preview{display:flex;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid #302a1c}.rate-preview:last-child{border:0}.rate-preview strong{color:var(--gold2)}section{padding:65px 0}.section-head{margin-bottom:27px}.section-head h2{font-size:clamp(27px,4vw,39px);margin:7px 0}.section-head p{color:var(--muted);max-width:700px;margin:0}.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service{padding:22px;border-radius:17px;background:var(--panel);border:1px solid #302a1c}.service .ico{width:47px;height:47px;border-radius:14px;background:#302613;color:var(--gold2);display:grid;place-items:center;font-size:23px;margin-bottom:16px}.service h3{margin:0 0 7px}.service p{margin:0;color:var(--muted);font-size:14px}.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:13px;color:#d5cdbb;font-weight:700}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #4a402a;border-radius:10px;background:#0c0c0c;color:var(--text);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}.result{background:#211b0f;border:1px solid #695326;padding:18px;border-radius:14px;margin-top:16px}.result small{color:#c8b98e}.result output{display:block;font-size:clamp(24px,4vw,34px);font-weight:900;color:var(--gold2);overflow-wrap:anywhere}.rates-list{display:grid;gap:10px}.rate-row{display:flex;justify-content:space-between;gap:12px;padding:14px;border-radius:12px;background:#0e0e0e;border:1px solid #302a1c}.rate-row strong{color:var(--gold2);text-align:right}.note{font-size:12px;color:var(--muted);margin-top:12px}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px}.contact-box{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:24px}.contact-box p{color:var(--muted)}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.admin-toggle{position:fixed;right:16px;bottom:16px;z-index:20;border:1px solid #695326;background:#17140d;color:var(--gold2);box-shadow:0 8px 25px #0008}.admin{display:none;position:fixed;z-index:30;inset:0;background:#000b;overflow:auto;padding:22px}.admin.open{display:block}.admin-panel{max-width:760px;margin:25px auto;background:#111;border:1px solid var(--gold);border-radius:20px;padding:24px}.admin-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.admin .field{margin:8px 0}.admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.status{font-size:12px;color:var(--gold2);min-height:20px}.hidden{display:none!important}
-@media(max-width:800px){.hero-grid,.calc-grid,.contact-grid{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.hero{padding-top:48px}.hero h1{letter-spacing:-.8px}}
-@media(max-width:520px){.services{grid-template-columns:1fr}.hero-card,.card,.contact-box{padding:19px}section{padding:48px 0}.admin{padding:8px}.admin-panel{padding:16px;margin:8px auto}.admin-grid{grid-template-columns:1fr}.nav{padding:12px 0}}
+:root{
+ --bg:#090909;--panel:#141414;--gold:#d8b45a;
+ --gold2:#f5dc96;--text:#f7f4ec;--muted:#aaa69c;
+ --line:#3b301a;--green:#25d366;--red:#ff7878
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+ font:15px/1.6 system-ui,Arial,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:var(--gold2);text-decoration:none}
+.wrap{width:min(1180px,94%);margin:auto}
+header{border-bottom:1px solid var(--line);background:#0d0d0d}
+nav{display:flex;align-items:center;justify-content:space-between;
+ gap:15px;padding:16px 0;flex-wrap:wrap}
+.brand{font-weight:950;letter-spacing:1.5px;color:var(--gold2);
+ font-size:20px}
+.brand small{display:block;font-size:10px;color:var(--muted);
+ letter-spacing:2px}
+.links{display:flex;gap:16px;flex-wrap:wrap}
+.links a{font-size:13px;color:#eee}
+button,.btn{border:0;border-radius:10px;padding:11px 15px;
+ font-weight:750;display:inline-block}
+.goldbtn{background:linear-gradient(135deg,var(--gold2),var(--gold));
+ color:#17120a}
+.outline{background:transparent;border:1px solid var(--gold);
+ color:var(--gold2)}
+.greenbtn{background:var(--green);color:#09230e}
+.hero{padding:65px 0;background:
+ radial-gradient(ellipse at 90% 10%,#3a2b0e,transparent 40%),
+ linear-gradient(145deg,#10100e,#090909)}
+.heroGrid,.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--gold);
+ font-weight:900;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.05;
+ letter-spacing:-1.5px;margin:15px 0}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.15}
+h3{margin-top:0}
+p{color:var(--muted)}
+section{padding:50px 0}
+.card{background:linear-gradient(145deg,#181818,#101010);
+ border:1px solid var(--line);border-radius:17px;padding:23px;
+ min-width:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:15px}
+.stat{background:#211a0c;border:1px solid #594622;
+ padding:16px;border-radius:13px}
+.stat strong{display:block;font-size:23px;color:var(--gold2);
+ overflow-wrap:anywhere}
+.field{display:grid;gap:6px;margin:12px 0}
+label{font-size:13px;color:#ded5c0;font-weight:700}
+input,select,textarea{width:100%;padding:11px;
+ border:1px solid #4a402b;background:#0a0a0a;color:white;
+ border-radius:9px;min-width:0}
+input:focus,select:focus,textarea:focus{outline:1px solid var(--gold)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.muted{color:var(--muted);font-size:13px}
+.result{margin-top:14px;background:#241d0e;border:1px solid #655025;
+ padding:16px;border-radius:12px}
+.result strong{display:block;color:var(--gold2);font-size:27px;
+ overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:10px 7px;border-bottom:1px solid #30291c}
+th{color:var(--gold2)}
+.tableWrap{overflow:auto}
+.pill{display:inline-block;border:1px solid #574522;
+ border-radius:30px;padding:3px 9px;color:var(--gold2);font-size:11px}
+.payment{padding:13px;background:#0c0c0c;border:1px solid #30291c;
+ border-radius:10px;margin:9px 0}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted)}
+.hidden{display:none!important}
+#adminModal{position:fixed;inset:0;z-index:50;background:#000d;
+ overflow:auto;padding:15px}
+.adminPanel{max-width:1050px;margin:20px auto;background:#111;
+ border:1px solid var(--gold);border-radius:17px;padding:22px}
+.adminHead{display:flex;justify-content:space-between;align-items:center;
+ gap:10px;flex-wrap:wrap}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0}
+.tabs button{background:#242016;color:#eee;border:1px solid #4c3b1d}
+.tabs button.active{background:var(--gold);color:#111}
+.adminSection{display:none}
+.adminSection.active{display:block}
+.notice{padding:12px;background:#211a0c;border-radius:10px;
+ color:#e9d9aa;font-size:12px;margin:12px 0}
+.status{min-height:22px;color:var(--gold2);font-size:13px}
+.danger{background:#492020;color:white}
+@media(max-width:760px){
+ .heroGrid,.two{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr 1fr}
+ .links{gap:10px}
+ section{padding:35px 0}
+ .card{padding:16px}
+}
+@media(max-width:440px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav">
-<a class="brand" href="#inicio" aria-label="Adrian Cambio inicio"><span class="brand-mark">AC</span><span>ADRIAN CAMBIO<small>REMESAS · DIVISAS · CONFIANZA</small></span></a>
-<nav class="navlinks" aria-label="Navegación"><a href="#servicios">Servicios</a><a href="#calculadora">Calculadora</a><a href="#tasas">Tasas</a><a href="#contacto">Contacto</a></nav>
-<a class="btn btn-outline" id="navWhatsApp" target="_blank" rel="noopener">WhatsApp ↗</a>
-</div></header>
+<header>
+ <div class="wrap"><nav>
+  <a class="brand" href="#inicio">◆ ADRIAN CAMBIO
+   <small>REMESAS · DIVISAS · CONFIANZA</small></a>
+  <div class="links">
+   <a href="#servicios">Servicios</a>
+   <a href="#calculadora">Calculadora</a>
+   <a href="#monedas">Monedas</a>
+   <a href="#pagos">Pagos</a>
+  </div>
+  <button class="outline" onclick="openAdmin()">⚙ Administrar</button>
+ </nav></div>
+</header>
+
 <main>
-<section class="hero" id="inicio"><div class="wrap hero-grid">
-<div><div class="eyebrow">Soluciones de cambio internacional</div><h1>Tu dinero,<br><span class="gold">más cerca de casa.</span></h1><p id="heroText">Gestiona tus remesas hacia Venezuela, consulta tasas de referencia y solicita tu operación con atención personalizada por WhatsApp.</p><div class="actions"><a class="btn btn-gold" href="#calculadora">⇄ Calcular cambio</a><a class="btn btn-outline" href="#contacto">Solicitar operación</a></div><div class="trust"><span>Atención personalizada</span><span>Proceso claro</span><span>Respuesta por WhatsApp</span></div></div>
-<div class="hero-card"><div class="eyebrow">Consulta rápida</div><h3>Tasas de referencia</h3><p class="muted" style="font-size:13px">Valores indicativos configurados por el administrador.</p><div id="heroRates"></div><a class="btn btn-outline" style="width:100%;margin-top:15px" href="#tasas">Ver todas las tasas</a></div>
+<section class="hero" id="inicio"><div class="wrap heroGrid">
+ <div>
+  <div class="eyebrow">Tu aliado financiero internacional</div>
+  <h1>Tu dinero,<br><span style="color:var(--gold2)">más cerca de casa.</span></h1>
+  <p id="heroText">Remesas hacia Venezuela, cambio de divisas y envíos internacionales con atención personalizada.</p>
+  <div class="actions">
+   <a class="btn goldbtn" href="#calculadora">Calcular cambio</a>
+   <a class="btn outline" id="heroWA" target="_blank" rel="noopener">Consultar por WhatsApp ↗</a>
+  </div>
+ </div>
+ <div class="card">
+  <div class="eyebrow">Cotizaciones</div><h3>Tasas de referencia</h3>
+  <div id="featuredRates"></div>
+  <p class="muted">Tasas configuradas por el administrador. Confirma el precio antes de operar.</p>
+ </div>
 </div></section>
-<section id="servicios"><div class="wrap"><div class="section-head"><div class="eyebrow">Lo que hacemos</div><h2>Servicios para mover tu dinero</h2><p>Comunícate con nosotros para confirmar disponibilidad, tasas aplicables, requisitos y tiempos antes de realizar una operación.</p></div><div class="services">
-<article class="service"><div class="ico">↗</div><h3>Remesas hacia Venezuela</h3><p>Solicita información para enviar dinero a tus familiares en Venezuela.</p></article>
-<article class="service"><div class="ico">⇄</div><h3>Cambio de divisas</h3><p>Consulta tasas de referencia y calcula el importe estimado de tu cambio.</p></article>
-<article class="service"><div class="ico">◎</div><h3>Envíos internacionales</h3><p>Pregunta por destinos disponibles, condiciones y tiempos de procesamiento.</p></article>
-<article class="service"><div class="ico">$</div><h3>Compra de dólares</h3><p>Consulta el proceso, la tasa aplicable y la disponibilidad antes de confirmar.</p></article>
-<article class="service"><div class="ico">Bs</div><h3>Venta de dólares</h3><p>Solicita una cotización personalizada para tu operación.</p></article>
-<article class="service"><div class="ico">◷</div><h3>Consulta de tasas</h3><p>Revisa los valores indicativos publicados en esta página.</p></article>
-</div></div></section>
-<section id="calculadora" style="background:#0d0d0c"><div class="wrap"><div class="section-head"><div class="eyebrow">Calculadora</div><h2>Calcula tu cambio</h2><p>Introduce un monto y selecciona las monedas. El resultado es una estimación con las tasas configuradas, no una oferta definitiva.</p></div><div class="calc-grid">
-<div class="card"><div class="field"><label for="amount">Monto</label><input id="amount" type="number" min="0" step="any" value="100" inputmode="decimal"></div><div class="field"><label for="fromCurrency">De</label><select id="fromCurrency"></select></div><div class="field"><label for="toCurrency">A</label><select id="toCurrency"></select></div><button class="primary" id="swapBtn" type="button">⇅ Intercambiar monedas</button><div class="result"><small>Resultado estimado</small><output id="calcResult">—</output><small id="calcFormula">Configura las tasas para calcular.</small></div><p class="note">La calculadora no ejecuta pagos ni transferencias. Confirma la cotización final por WhatsApp.</p></div>
-<div class="card" id="tasas"><div class="eyebrow">Valores configurados</div><h3>Tasas de cambio</h3><p class="muted" style="font-size:13px">Las tasas se pueden modificar en el panel local de administración.</p><div class="rates-list" id="ratesList"></div><p class="note" id="rateUpdated">Tasas indicativas. Consulta la cotización vigente antes de operar.</p></div>
-</div></div></section>
-<section id="contacto"><div class="wrap"><div class="section-head"><div class="eyebrow">Hablemos</div><h2>Solicita tu operación</h2><p>Completa los datos y se abrirá WhatsApp con el mensaje listo para enviar. No se transmite nada hasta que tú lo envíes.</p></div><div class="contact-grid">
-<div class="contact-box"><div class="eyebrow">Atención directa</div><h3>Adrian Cambio</h3><p>Cuéntanos qué necesitas y te orientaremos sobre disponibilidad, cotización y próximos pasos.</p><p><strong style="color:var(--gold2)">WhatsApp</strong><br><span id="phoneText">+58 412-1587887</span></p><a class="btn btn-green" id="contactWhatsApp" target="_blank" rel="noopener">Abrir WhatsApp ↗</a><p class="note">No compartas claves, códigos de verificación ni contraseñas bancarias.</p></div>
-<form class="contact-box" id="requestForm"><div class="field"><label for="clientName">Tu nombre</label><input id="clientName" required maxlength="80" placeholder="Nombre y apellido"></div><div class="field"><label for="serviceType">Servicio</label><select id="serviceType" required><option value="Remesa hacia Venezuela">Remesa hacia Venezuela</option><option value="Cambio de divisas">Cambio de divisas</option><option value="Envío internacional">Envío internacional</option><option value="Compra de dólares">Compra de dólares</option><option value="Venta de dólares">Venta de dólares</option><option value="Consulta de tasas">Consulta de tasas</option></select></div><div class="field"><label for="requestAmount">Monto aproximado (opcional)</label><input id="requestAmount" type="number" min="0" step="any" placeholder="Ej. 100"></div><div class="field"><label for="requestCurrency">Moneda</label><select id="requestCurrency"></select></div><div class="field"><label for="destination">País de origen/destino (opcional)</label><input id="destination" maxlength="100" placeholder="Ej. Canadá → Venezuela"></div><div class="field"><label for="details">Detalles (opcional)</label><textarea id="details" rows="3" maxlength="500" placeholder="Cuéntanos qué necesitas"></textarea></div><button class="primary" type="submit">Preparar solicitud por WhatsApp ↗</button><p class="note">Este formulario no guarda solicitudes en la página ni envía el mensaje automáticamente.</p></form>
-</div></div></section>
+
+<section id="servicios"><div class="wrap">
+ <div class="eyebrow">Nuestros servicios</div><h2>Soluciones para tu dinero</h2>
+ <div class="grid">
+  <article class="card"><h3>↗ Remesas</h3><p>Solicita información para enviar dinero a Venezuela.</p></article>
+  <article class="card"><h3>⇄ Cambio de divisas</h3><p>Consulta cotizaciones y calcula conversiones estimadas.</p></article>
+  <article class="card"><h3>◎ Envíos internacionales</h3><p>Consulta disponibilidad, destinos y requisitos.</p></article>
+  <article class="card"><h3>＄ Compra de divisas</h3><p>Solicita una cotización personalizada.</p></article>
+  <article class="card"><h3>Bs Venta de divisas</h3><p>Consulta las tasas de venta configuradas.</p></article>
+  <article class="card"><h3>◷ Consulta de tasas</h3><p>Revisa los valores publicados para cada moneda.</p></article>
+ </div>
+</div></section>
+
+<section id="calculadora" style="background:#0e0e0d"><div class="wrap">
+ <div class="eyebrow">Conversor</div><h2>Calculadora de divisas</h2>
+ <div class="two">
+  <div class="card">
+   <div class="field"><label>Monto</label><input id="amount" type="number" min="0" step="any" value="100"></div>
+   <div class="field"><label>Moneda de origen</label><select id="from"></select></div>
+   <div class="field"><label>Moneda de destino</label><select id="to"></select></div>
+   <button class="outline" onclick="swapCurrencies()">⇅ Intercambiar</button>
+   <div class="result"><span class="muted">Resultado estimado</span><strong id="conversion">—</strong><span id="formula" class="muted"></span></div>
+  </div>
+  <div class="card"><h3>Tasas publicadas</h3><div id="rateTable" class="tableWrap"></div></div>
+ </div>
+</div></section>
+
+<section id="monedas"><div class="wrap">
+ <div class="eyebrow">Catálogo internacional</div><h2>Monedas disponibles</h2>
+ <p>La lista se genera con los códigos monetarios reconocidos por el navegador cuando son compatibles. Puedes agregar cualquier moneda manualmente desde administración.</p>
+ <div class="card"><div class="field"><label>Buscar moneda</label><input id="currencySearch" placeholder="Buscar por código o nombre..." oninput="renderCurrencies()"></div>
+ <div class="tableWrap" id="currencyTable"></div></div>
+</div></section>
+
+<section id="pagos" style="background:#0e0e0d"><div class="wrap">
+ <div class="eyebrow">Formas de pago</div><h2>Métodos disponibles</h2>
+ <p>Los métodos que el administrador publique aparecerán aquí.</p>
+ <div id="publicPayments"></div>
+</div></section>
+
+<section id="solicitud"><div class="wrap">
+ <div class="eyebrow">Atención personalizada</div><h2>Solicita una operación</h2>
+ <div class="two">
+  <div class="card"><h3>¿Necesitas ayuda?</h3>
+   <p>Envíanos tu solicitud por WhatsApp para confirmar tasa, disponibilidad y requisitos.</p>
+   <a class="btn greenbtn" id="contactWA" target="_blank" rel="noopener">Abrir WhatsApp ↗</a>
+  </div>
+  <form class="card" id="requestForm">
+   <div class="field"><label>Nombre</label><input id="clientName" required maxlength="80"></div>
+   <div class="field"><label>Servicio</label><select id="service">
+    <option>Remesa hacia Venezuela</option><option>Cambio de divisas</option>
+    <option>Envío internacional</option><option>Compra de divisas</option>
+    <option>Venta de divisas</option><option>Consulta de tasas</option>
+   </select></div>
+   <div class="field"><label>Monto aproximado</label><input id="reqAmount" type="number" min="0" step="any"></div>
+   <div class="field"><label>Moneda</label><select id="reqCurrency"></select></div>
+   <div class="field"><label>Destino o detalles</label><textarea id="details" rows="3" maxlength="500"></textarea></div>
+   <button class="goldbtn" type="submit">Preparar mensaje por WhatsApp</button>
+   <p class="muted">El mensaje solo se envía cuando lo confirmes en WhatsApp.</p>
+  </form>
+ </div>
+</div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><span>© <span id="year"></span> Adrian Cambio. Todos los derechos reservados.</span><span>Las tasas son referenciales y deben confirmarse antes de operar.</span></div></footer>
-<button class="admin-toggle" id="adminOpen" type="button">⚙ Administración local</button>
-<div class="admin" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><div class="admin-panel">
-<div class="admin-head"><div><div class="eyebrow">Configuración de este navegador</div><h2 id="adminTitle" style="margin:4px 0">Panel de administración</h2></div><button class="btn-outline" id="adminClose" type="button" aria-label="Cerrar">✕</button></div>
-<p class="muted">Los cambios se guardan en el almacenamiento local de este navegador. No hay contraseña ni protección de servidor; no uses este panel para administrar información sensible en una web pública.</p>
-<div class="admin-grid">
-<div class="field"><label for="adminPhone">WhatsApp (con código de país)</label><input id="adminPhone" placeholder="584121587887"></div>
-<div class="field"><label for="adminHero">Texto principal</label><input id="adminHero" maxlength="300"></div>
-<div class="field"><label for="rateUSD">Tasa USD → VES</label><input id="rateUSD" type="number" min="0.000001" step="any"></div>
-<div class="field"><label for="rateCAD">Tasa CAD → VES</label><input id="rateCAD" type="number" min="0.000001" step="any"></div>
-<div class="field"><label for="rateEUR">Tasa EUR → VES</label><input id="rateEUR" type="number" min="0.000001" step="any"></div>
-<div class="field"><label for="rateVESUSD">Tasa VES → USD</label><input id="rateVESUSD" type="number" min="0.000001" step="any"></div>
+<footer><div class="wrap">© <span id="year"></span> Adrian Cambio · Tasas indicativas, sujetas a confirmación.</div></footer>
+
+<div id="adminModal" class="hidden">
+<div class="adminPanel">
+ <div id="loginView">
+  <div class="adminHead"><div><div class="eyebrow">Área privada local</div><h2>Inicio de sesión</h2></div><button class="outline" onclick="closeAdmin()">Cerrar</button></div>
+  <p>Introduce las credenciales del administrador.</p>
+  <form id="loginForm">
+   <div class="field"><label>Usuario</label><input id="loginUser" autocomplete="username" required></div>
+   <div class="field"><label>Contraseña</label><input id="loginPass" type="password" autocomplete="current-password" required></div>
+   <button class="goldbtn">Iniciar sesión</button><div id="loginStatus" class="status"></div>
+  </form>
+  <div class="notice">Credenciales iniciales del ejemplo: usuario <b>admin</b>, contraseña <b>ACambio2026!</b>. Cámbialas en el código. Este inicio de sesión no es seguro frente a inspección del código fuente y no debe utilizarse como protección real en una web pública.</div>
+ </div>
+
+ <div id="dashboard" class="hidden">
+  <div class="adminHead"><div><div class="eyebrow">Control total local</div><h2>Panel de administración</h2></div>
+   <div class="actions"><button class="outline" onclick="exportData()">Exportar respaldo</button><button class="outline" onclick="document.getElementById('importFile').click()">Importar</button><button class="danger" onclick="logout()">Cerrar sesión</button></div>
+  </div>
+  <input type="file" id="importFile" accept="application/json,.json" class="hidden">
+  <div class="notice">Los datos se guardan en este navegador. No se sincronizan automáticamente con los dispositivos de tus clientes. Usa exportar para crear una copia de respaldo.</div>
+  <div class="tabs">
+   <button class="active" data-tab="overview">Resumen</button>
+   <button data-tab="currencyAdmin">Monedas y tasas</button>
+   <button data-tab="paymentAdmin">Métodos de pago</button>
+   <button data-tab="commissionAdmin">Comisiones</button>
+   <button data-tab="operationAdmin">Operaciones</button>
+   <button data-tab="settingsAdmin">Configuración</button>
+  </div>
+
+  <div class="adminSection active" id="overview">
+   <div class="grid">
+    <div class="stat">Monedas<strong id="statCurrencies">0</strong></div>
+    <div class="stat">Métodos de pago<strong id="statPayments">0</strong></div>
+    <div class="stat">Operaciones registradas<strong id="statOps">0</strong></div>
+    <div class="stat">Comisiones brutas<strong id="statGross">$0</strong></div>
+    <div class="stat">Costes registrados<strong id="statCosts">$0</strong></div>
+    <div class="stat">Ganancia neta estimada<strong id="statNet">$0</strong></div>
+   </div>
+   <p class="muted">Los totales de comisión están expresados en USD como referencia. Solo suma registros que hayas introducido en USD.</p>
+  </div>
+
+  <div class="adminSection" id="currencyAdmin">
+   <h3>Agregar o editar moneda</h3>
+   <input type="hidden" id="editCurrencyCode">
+   <div class="grid">
+    <div class="field"><label>Código ISO / código propio</label><input id="newCode" placeholder="BRL" maxlength="8"></div>
+    <div class="field"><label>Nombre</label><input id="newName" placeholder="Real brasileño"></div>
+    <div class="field"><label>Símbolo</label><input id="newSymbol" placeholder="R$"></div>
+    <div class="field"><label>Tasa de compra en VES por unidad</label><input id="newBuy" type="number" min="0" step="any" placeholder="0"></div>
+    <div class="field"><label>Tasa de venta en VES por unidad</label><input id="newSell" type="number" min="0" step="any" placeholder="0"></div>
+    <div class="field"><label>Activa</label><select id="newActive"><option value="true">Sí</option><option value="false">No</option></select></div>
+   </div>
+   <div class="actions"><button class="goldbtn" onclick="saveCurrency()">Guardar moneda</button><button class="outline" onclick="clearCurrencyForm()">Limpiar</button></div>
+   <h3>Catálogo de monedas</h3><div class="tableWrap" id="adminCurrencyTable"></div>
+  </div>
+
+  <div class="adminSection" id="paymentAdmin">
+   <h3>Agregar método de pago</h3>
+   <input type="hidden" id="editPaymentId">
+   <div class="grid">
+    <div class="field"><label>Nombre del método</label><input id="payName" placeholder="Transferencia bancaria"></div>
+    <div class="field"><label>Banco o proveedor</label><input id="payProvider" placeholder="Nombre del banco"></div>
+    <div class="field"><label>Tipo</label><select id="payType"><option>Transferencia bancaria</option><option>Pago móvil</option><option>Billetera digital</option><option>Efectivo</option><option>Criptomoneda</option><option>Otro</option></select></div>
+    <div class="field"><label>Moneda admitida</label><select id="payCurrency"></select></div>
+    <div class="field"><label>Datos públicos de pago</label><input id="payDetails" placeholder="Datos que quieres mostrar al cliente"></div>
+    <div class="field"><label>Estado</label><select id="payActive"><option value="true">Visible</option><option value="false">Oculto</option></select></div>
+   </div>
+   <div class="actions"><button class="goldbtn" onclick="savePayment()">Guardar método</button><button class="outline" onclick="clearPaymentForm()">Limpiar</button></div>
+   <p class="muted">No introduzcas contraseñas, PIN, códigos de autenticación ni datos secretos.</p>
+   <h3>Métodos guardados</h3><div class="tableWrap" id="adminPaymentTable"></div>
+  </div>
+
+  <div class="adminSection" id="commissionAdmin">
+   <h3>Calculadora de comisiones</h3>
+   <div class="grid">
+    <div class="field"><label>Monto de operación en USD</label><input id="commAmount" type="number" min="0" value="500"></div>
+    <div class="field"><label>Comisión porcentual (%)</label><input id="commPercent" type="number" min="0" step="any" value="2"></div>
+    <div class="field"><label>Comisión fija (USD)</label><input id="commFixed" type="number" min="0" step="any" value="1"></div>
+    <div class="field"><label>Otros costes (USD)</label><input id="commCosts" type="number" min="0" step="any" value="2"></div>
+    <div class="field"><label>Quién paga la comisión</label><select id="commPayer"><option value="client">El cliente</option><option value="business">El negocio</option></select></div>
+   </div>
+   <div class="result"><span>Comisión calculada</span><strong id="commResult">$0.00</strong><span id="commBreakdown" class="muted"></span></div>
+   <button class="goldbtn" onclick="recordCommission()">Registrar operación con esta comisión</button>
+   <h3>Historial de operaciones</h3><div class="tableWrap" id="opsTable"></div>
+  </div>
+
+  <div class="adminSection" id="operationAdmin">
+   <h3>Registrar operación manualmente</h3>
+   <div class="grid">
+    <div class="field"><label>Cliente o referencia</label><input id="opClient" placeholder="Cliente / referencia"></div>
+    <div class="field"><label>Tipo de operación</label><select id="opType"><option>Remesa</option><option>Cambio de divisas</option><option>Envío internacional</option><option>Compra de divisas</option><option>Venta de divisas</option></select></div>
+    <div class="field"><label>Monto de la operación en USD</label><input id="opAmount" type="number" min="0" step="any"></div>
+    <div class="field"><label>Comisión bruta en USD</label><input id="opCommission" type="number" min="0" step="any"></div>
+    <div class="field"><label>Costes en USD</label><input id="opCosts" type="number" min="0" step="any"></div>
+    <div class="field"><label>Estado</label><select id="opStatus"><option>Pendiente</option><option>En proceso</option><option>Completada</option><option>Cancelada</option></select></div>
+   </div>
+   <button class="goldbtn" onclick="addOperation()">Guardar operación</button>
+   <h3>Operaciones guardadas</h3><div class="tableWrap" id="opsTable2"></div>
+  </div>
+
+  <div class="adminSection" id="settingsAdmin">
+   <h3>Datos del negocio</h3>
+   <div class="grid">
+    <div class="field"><label>Nombre comercial</label><input id="setName"></div>
+    <div class="field"><label>WhatsApp con código de país</label><input id="setPhone" placeholder="584121587887"></div>
+    <div class="field"><label>Texto principal</label><input id="setHero"></div>
+    <div class="field"><label>Nota de tasas</label><input id="setNote"></div>
+   </div>
+   <button class="goldbtn" onclick="saveSettings()">Guardar configuración</button>
+   <hr style="border-color:var(--line);margin:25px 0">
+   <h3>Cambiar credenciales de acceso local</h3>
+   <div class="grid">
+    <div class="field"><label>Nuevo usuario</label><input id="newAdminUser" autocomplete="off"></div>
+    <div class="field"><label>Nueva contraseña</label><input id="newAdminPass" type="password" autocomplete="new-password"></div>
+   </div>
+   <button class="outline" onclick="changeCredentials()">Actualizar credenciales</button>
+   <div id="settingsStatus" class="status"></div>
+   <hr style="border-color:var(--line);margin:25px 0">
+   <h3>Restablecimiento</h3><p class="muted">Esto elimina los datos guardados localmente de Adrian Cambio en este navegador.</p>
+   <button class="danger" onclick="resetEverything()">Borrar todos los datos locales</button>
+  </div>
+  <p class="status" id="adminStatus"></p>
+ </div>
 </div>
-<div class="field"><label for="adminDisclaimer">Nota sobre tasas</label><input id="adminDisclaimer" maxlength="200"></div>
-<div class="admin-actions"><button class="primary" id="saveAdmin" type="button">Guardar cambios</button><button class="btn-outline" id="resetAdmin" type="button">Restaurar valores iniciales</button></div><p class="status" id="adminStatus" aria-live="polite"></p>
-<hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3>Uso en Blogger</h3><p class="muted">Para publicar, copia el contenido de este archivo y pégalo en el editor HTML del tema o en un gadget HTML/JavaScript. Blogger puede modificar o restringir algunas estructuras según el lugar donde lo pegues. La persistencia local seguirá siendo distinta para cada navegador.</p>
-</div></div>
+</div>
+
 <script>
-(function(){
-'use strict';
-const KEY='adrianCambioSettingsV1';
-const DEFAULTS={phone:'584121587887',hero:'Gestiona tus remesas hacia Venezuela, consulta tasas de referencia y solicita tu operación con atención personalizada por WhatsApp.',rates:{USD:36.5,CAD:26.8,EUR:39.2,VESUSD:1/36.5},disclaimer:'Tasas indicativas. Confirma la cotización vigente antes de operar.'};
-let settings=loadSettings();
-function loadSettings(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.rates)return {...DEFAULTS,...s,rates:{...DEFAULTS.rates,...s.rates}}}catch(e){}return JSON.parse(JSON.stringify(DEFAULTS))}
-function saveSettings(){try{localStorage.setItem(KEY,JSON.stringify(settings));return true}catch(e){return false}}
+"use strict";
+const STORE="adrianCambioCompleteV1";
+const DEFAULTS={
+ name:"Adrian Cambio",phone:"584121587887",
+ hero:"Remesas hacia Venezuela, cambio de divisas y envíos internacionales con atención personalizada.",
+ note:"Tasas indicativas. Confirma la cotización vigente antes de operar.",
+ currencies:[],payments:[],operations:[],
+ adminUser:"admin",adminPass:"ACambio2026!"
+};
+let db=loadDB(),authenticated=false;
 const $=id=>document.getElementById(id);
-function num(v){const n=Number(v);return Number.isFinite(n)&&n>0?n:0}
-function money(v,currency){try{return new Intl.NumberFormat('es-VE',{style:'currency',currency,maximumFractionDigits:2}).format(v)}catch(e){return Number(v).toLocaleString('es-VE',{maximumFractionDigits:2})+' '+currency}}
-function formatRate(v){return Number(v).toLocaleString('es-VE',{maximumFractionDigits:6})}
-function ratesToVES(code){if(code==='VES')return 1;if(code==='USD')return num(settings.rates.USD);if(code==='CAD')return num(settings.rates.CAD);if(code==='EUR')return num(settings.rates.EUR);return 0}
-function convert(amount,from,to){if(from==='VES'&&to==='USD')return amount*num(settings.rates.VESUSD);if(from==='USD'&&to==='VES')return amount*num(settings.rates.USD);const a=ratesToVES(from),b=ratesToVES(to);return a&&b?amount*a/b:NaN}
-function waUrl(message){return 'https://wa.me/'+String(settings.phone).replace(/\D/g,'')+'?text='+encodeURIComponent(message)}
-function refreshLinks(){const url=waUrl('Hola, Adrian Cambio. Quisiera información sobre sus servicios.');$('navWhatsApp').href=url;$('contactWhatsApp').href=url;$('phoneText').textContent='+'+settings.phone.replace(/\D/g,'')}
-function renderRates(){const items=[['USD','VES',settings.rates.USD],['CAD','VES',settings.rates.CAD],['EUR','VES',settings.rates.EUR],['VES','USD',settings.rates.VESUSD]];$('heroRates').innerHTML=items.slice(0,3).map(x=>`<div class="rate-preview"><span>${x[0]} → ${x[1]}</span><strong>${formatRate(x[2])} ${x[1]}</strong></div>`).join('');$('ratesList').innerHTML=items.map(x=>`<div class="rate-row"><span>${x[0]} → ${x[1]}</span><strong>${formatRate(x[2])} ${x[1]}</strong></div>`).join('');$('rateUpdated').textContent=settings.disclaimer}
-function fillCurrencySelects(){const opts=[['USD','Dólar estadounidense (USD)'],['VES','Bolívar (VES)'],['CAD','Dólar canadiense (CAD)'],['EUR','Euro (EUR)']].map(x=>`<option value="${x[0]}">${x[1]}</option>`).join('');['fromCurrency','toCurrency','requestCurrency'].forEach(id=>$(id).innerHTML=opts);$('fromCurrency').value='USD';$('toCurrency').value='VES';$('requestCurrency').value='USD'}
-function updateCalc(){const amount=num($('amount').value),from=$('fromCurrency').value,to=$('toCurrency').value;if(!amount){$('calcResult').textContent='—';$('calcFormula').textContent='Introduce un monto mayor que cero.';return}const result=convert(amount,from,to);$('calcResult').textContent=Number.isFinite(result)?money(result,to):'No disponible';$('calcFormula').textContent=Number.isFinite(result)?`${formatRate(amount)} ${from} × tasa configurada = ${formatRate(result)} ${to}`:'No hay una tasa válida para esta conversión.'}
-function fillAdmin(){ $('adminPhone').value=settings.phone;$('adminHero').value=settings.hero;$('rateUSD').value=settings.rates.USD;$('rateCAD').value=settings.rates.CAD;$('rateEUR').value=settings.rates.EUR;$('rateVESUSD').value=settings.rates.VESUSD;$('adminDisclaimer').value=settings.disclaimer}
-function render(){ $('heroText').textContent=settings.hero;refreshLinks();renderRates();updateCalc()}
-$('amount').addEventListener('input',updateCalc);$('fromCurrency').addEventListener('change',updateCalc);$('toCurrency').addEventListener('change',updateCalc);
-$('swapBtn').addEventListener('click',()=>{const f=$('fromCurrency').value;$('fromCurrency').value=$('toCurrency').value;$('toCurrency').value=f;updateCalc()});
-$('requestForm').addEventListener('submit',e=>{e.preventDefault();const name=$('clientName').value.trim(),service=$('serviceType').value,amount=$('requestAmount').value.trim(),currency=$('requestCurrency').value,dest=$('destination').value.trim(),details=$('details').value.trim();let msg=`Hola, Adrian Cambio. Quiero solicitar información sobre una operación.\n\nNombre: ${name}\nServicio: ${service}`;if(amount)msg+=`\nMonto aproximado: ${amount} ${currency}`;if(dest)msg+=`\nOrigen/destino: ${dest}`;if(details)msg+=`\nDetalles: ${details}`;msg+='\n\nPor favor, confirmen la tasa vigente, disponibilidad, requisitos y pasos para completar la operación.';window.open(waUrl(msg),'_blank','noopener,noreferrer')});
-$('adminOpen').addEventListener('click',()=>{$('adminModal').classList.add('open');fillAdmin()});$('adminClose').addEventListener('click',()=>$('adminModal').classList.remove('open'));$('adminModal').addEventListener('click',e=>{if(e.target===$('adminModal'))$('adminModal').classList.remove('open')});document.addEventListener('keydown',e=>{if(e.key==='Escape')$('adminModal').classList.remove('open')});
-$('saveAdmin').addEventListener('click',()=>{const phone=$('adminPhone').value.replace(/\D/g,'');const usd=num($('rateUSD').value),cad=num($('rateCAD').value),eur=num($('rateEUR').value),vesusd=num($('rateVESUSD').value);if(phone.length<8||!usd||!cad||!eur||!vesusd){$('adminStatus').textContent='Revisa el teléfono y coloca tasas numéricas mayores que cero.';return}settings={phone,hero:$('adminHero').value.trim()||DEFAULTS.hero,rates:{USD:usd,CAD:cad,EUR:eur,VESUSD:vesusd},disclaimer:$('adminDisclaimer').value.trim()||DEFAULTS.disclaimer};const ok=saveSettings();render();$('adminStatus').textContent=ok?'Cambios guardados en este navegador.':'No se pudo guardar; el navegador podría bloquear el almacenamiento local.'});
-$('resetAdmin').addEventListener('click',()=>{settings=JSON.parse(JSON.stringify(DEFAULTS));saveSettings();fillAdmin();render();$('adminStatus').textContent='Se restauraron los valores iniciales.'});
-$('year').textContent=new Date().getFullYear();fillCurrencySelects();render();
-})();
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const number=v=>Number.isFinite(Number(v))?Number(v):0;
+const fmt=(n,dec=2)=>number(n).toLocaleString("es-VE",{minimumFractionDigits:dec,maximumFractionDigits:dec});
+function loadDB(){
+ try{const d=JSON.parse(localStorage.getItem(STORE));if(d&&Array.isArray(d.currencies))return {...structuredClone(DEFAULTS),...d,currencies:d.currencies,payments:d.payments||[],operations:d.operations||[]}}catch(e){}
+ return structuredClone(DEFAULTS);
+}
+function saveDB(){
+ try{localStorage.setItem(STORE,JSON.stringify(db));return true}
+ catch(e){alert("No se pudieron guardar los datos. Exporta un respaldo o libera espacio del navegador.");return false}
+}
+const currencyNames={
+ USD:"Dólar estadounidense",VES:"Bolívar venezolano",BRL:"Real brasileño",
+ EUR:"Euro",CAD:"Dólar canadiense",GBP:"Libra esterlina",MXN:"Peso mexicano",
+ COP:"Peso colombiano",ARS:"Peso argentino",CLP:"Peso chileno",PEN:"Sol peruano",
+ UYU:"Peso uruguayo",PYG:"Guaraní paraguayo",BOB:"Boliviano",DOP:"Peso dominicano",
+ CRC:"Colón costarricense",GTQ:"Quetzal guatemalteco",HNL:"Lempira hondureño",
+ NIO:"Córdoba nicaragüense",PAB:"Balboa panameño",CUP:"Peso cubano",
+ JPY:"Yen japonés",CNY:"Yuan chino",INR:"Rupia india",KRW:"Won surcoreano",
+ AUD:"Dólar australiano",NZD:"Dólar neozelandés",CHF:"Franco suizo",
+ SEK:"Corona sueca",NOK:"Corona noruega",DKK:"Corona danesa",PLN:"Zloty polaco",
+ CZK:"Corona checa",HUF:"Forinto húngaro",RON:"Leu rumano",TRY:"Lira turca",
+ RUB:"Rublo ruso",UAH:"Grivna ucraniana",ILS:"Nuevo séquel israelí",
+ AED:"Dírham de Emiratos Árabes Unidos",SAR:"Riyal saudí",QAR:"Riyal catarí",
+ KWD:"Dinar kuwaití",BHD:"Dinar bareiní",OMR:"Rial omaní",JOD:"Dinar jordano",
+ EGP:"Libra egipcia",MAD:"Dírham marroquí",TND:"Dinar tunecino",
+ ZAR:"Rand sudafricano",NGN:"Naira nigeriana",GHS:"Cedi ghanés",
+ KES:"Chelín keniano",UGX:"Chelín ugandés",TZS:"Chelín tanzano",
+ XOF:"Franco CFA BCEAO",XAF:"Franco CFA BEAC",ETB:"Birr etíope",
+ PKR:"Rupia pakistaní",BDT:"Taka bangladesí",LKR:"Rupia de Sri Lanka",
+ NPR:"Rupia nepalí",THB:"Baht tailandés",VND:"Dong vietnamita",
+ IDR:"Rupia indonesia",MYR:"Ringgit malasio",SGD:"Dólar de Singapur",
+ HKD:"Dólar de Hong Kong",TWD:"Nuevo dólar taiwanés",PHP:"Peso filipino",
+ ISK:"Corona islandesa",ALL:"Lek albanés",RSD:"Dinar serbio",BAM:"Marco convertible",
+ BGN:"Lev búlgaro",MDL:"Leu moldavo",GEL:"Lari georgiano",KZT:"Tenge kazajo",
+ UZS:"Som uzbeko",AZN:"Manat azerbaiyano",AMD:"Dram armenio",
+ IQD:"Dinar iraquí",IRR:"Rial iraní",LBP:"Libra libanesa",
+ DZD:"Dinar argelino",LYD:"Dinar libio",SDG:"Libra sudanesa",
+ XCD:"Dólar del Caribe Oriental",JMD:"Dólar jamaiquino",
+ TTD:"Dólar de Trinidad y Tobago",BBD:"Dólar de Barbados",
+ BSD:"Dólar bahameño",BZD:"Dólar beliceño",GYD:"Dólar guyanés",
+ SRD:"Dólar surinamés",FJD:"Dólar fiyiano",PGK:"Kina de Papúa Nueva Guinea",
+ XPF:"Franco CFP",MUR:"Rupia mauriciana",SCR:"Rupia seychellense",
+ BWP:"Pula botsuano",NAD:"Dólar namibio",MZN:"Metical mozambiqueño",
+ AOA:"Kwanza angoleño",ZMW:"Kwacha zambiano",RWF:"Franco ruandés",
+ XDR:"Derechos especiales de giro"
+};
+const fallbackCodes=Object.keys(currencyNames);
+function getAllCurrencyCodes(){
+ let codes=[];
+ try{if(Intl.supportedValuesOf)codes=Intl.supportedValuesOf("currency")}catch(e){}
+ return [...new Set([...codes,...fallbackCodes])].sort();
+}
+function initCurrencies(){
+ if(db.currencies.length)return;
+ db.currencies=getAllCurrencyCodes().map(code=>({
+  code,name:currencyNames[code]||getIntlName(code)||code,
+  symbol:getSymbol(code),buy:0,sell:0,active:true
+ }));
+ const defaults={USD:[36.5,37],VES:[1,1],BRL:[6.5,7],EUR:[39,40],CAD:[26,27]};
+ db.currencies.forEach(c=>{if(defaults[c.code]){c.buy=defaults[c.code][0];c.sell=defaults[c.code][1]}});
+ saveDB();
+}
+function getIntlName(code){
+ try{return new Intl.DisplayNames(["es"],{type:"currency"}).of(code)||code}catch(e){return code}
+}
+function getSymbol(code){
+ try{return new Intl.NumberFormat("es",{style:"currency",currency:code,currencyDisplay:"narrowSymbol"}).formatToParts(1).find(x=>x.type==="currency")?.value||code}catch(e){return code}
+}
+function activeCurrencies(){return db.currencies.filter(c=>c.active)}
+function currency(code){return db.currencies.find(c=>c.code===code)}
+function wa(message){
+ const phone=String(db.phone).replace(/\D/g,"");
+ return "https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+}
+function renderLinks(){
+ $("heroText").textContent=db.hero;
+ $("heroWA").href=wa("Hola, "+db.name+". Quiero consultar sus servicios.");
+ $("contactWA").href=wa("Hola, "+db.name+". Quiero información sobre una operación.");
+ document.title=db.name+" | Remesas y Divisas";
+}
+function renderRates(){
+ const featured=activeCurrencies().filter(c=>c.buy>0||c.sell>0).slice(0,6);
+ $("featuredRates").innerHTML=featured.length?featured.map(c=>`
+ <div class="payment"><b>${esc(c.code)} · ${esc(c.name)}</b>
+ <div class="muted">Compra: ${fmt(c.buy,4)} VES · Venta: ${fmt(c.sell,4)} VES</div></div>`).join(""):"<p>No hay tasas configuradas todavía.</p>";
+ const rows=activeCurrencies().filter(c=>c.buy>0||c.sell>0);
+ $("rateTable").innerHTML=rows.length?`<table><thead><tr><th>Moneda</th><th>Compra VES</th><th>Venta VES</th></tr></thead><tbody>${rows.map(c=>`<tr><td>${esc(c.code)} · ${esc(c.name)}</td><td>${fmt(c.buy,4)}</td><td>${fmt(c.sell,4)}</td></tr>`).join("")}</tbody></table>`:"<p>El administrador todavía no ha configurado tasas.";
+}
+function fillSelect(id,includeInactive=false){
+ const el=$(id),old=el.value;
+ const list=includeInactive?db.currencies:activeCurrencies();
+ el.innerHTML=list.map(c=>`<option value="${esc(c.code)}">${esc(c.code)} — ${esc(c.name)}</option>`).join("");
+ if(list.some(c=>c.code===old))el.value=old;
+}
+function renderCurrencySelects(){
+ ["from","to","reqCurrency","payCurrency"].forEach(id=>fillSelect(id));
+ if(!$("from").value)$("from").value="USD";
+ if(!$("to").value)$("to").value="VES";
+}
+function convert(amount,from,to){
+ if(from===to)return amount;
+ const a=currency(from),b=currency(to);
+ if(!a||!b)return NaN;
+ // Tasas introducidas como VES por unidad. Usa compra al convertir desde la moneda
+ // y venta al calcular la cantidad necesaria de la moneda de destino.
+ const base=a.buy>0?a.buy:a.sell;
+ const target=b.sell>0?b.sell:b.buy;
+ if(!(base>0&&target>0))return NaN;
+ return amount*base/target;
+}
+function calculate(){
+ const amount=number($("amount").value),from=$("from").value,to=$("to").value;
+ const result=convert(amount,from,to);
+ $("conversion").textContent=amount>0&&Number.isFinite(result)?
+  fmt(result,4)+" "+to:"Configura tasas para calcular";
+ $("formula").textContent=amount>0&&Number.isFinite(result)?
+  `${fmt(amount,4)} ${from} → ${fmt(result,4)} ${to}`:
+  "El resultado es estimado y depende de las tasas configuradas.";
+}
+function swapCurrencies(){
+ const a=$("from").value;$("from").value=$("to").value;$("to").value=a;calculate();
+}
+function renderCurrencies(){
+ const q=($("currencySearch").value||"").toLowerCase();
+ const list=activeCurrencies().filter(c=>(c.code+" "+c.name).toLowerCase().includes(q));
+ $("currencyTable").innerHTML=`<table><thead><tr><th>Código</th><th>Moneda</th><th>Símbolo</th><th>Estado</th></tr></thead><tbody>${list.map(c=>`<tr><td>${esc(c.code)}</td><td>${esc(c.name)}</td><td>${esc(c.symbol)}</td><td><span class="pill">Activa</span></td></tr>`).join("")}</tbody></table><p class="muted">Mostrando ${list.length} de ${activeCurrencies().length} monedas activas.</p>`;
+}
+function renderPayments(){
+ const list=db.payments.filter(p=>p.active);
+ $("publicPayments").innerHTML=list.length?list.map(p=>`
+ <div class="payment"><b>${esc(p.name)}</b> <span class="pill">${esc(p.type)}</span>
+ <div class="muted">${esc(p.provider)} · ${esc(p.currency||"Moneda por confirmar")}</div>
+ <p>${esc(p.details)}</p></div>`).join(""):"<div class='card'>Los métodos de pago se publicarán aquí cuando el administrador los configure.</div>";
+ $("adminPaymentTable").innerHTML=db.payments.length?`<table><thead><tr><th>Método</th><th>Moneda</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>${db.payments.map(p=>`<tr><td>${esc(p.name)}<br><span class="muted">${esc(p.provider)}</span></td><td>${esc(p.currency)}</td><td>${p.active?"Visible":"Oculto"}</td><td><button class="outline" onclick="editPayment('${p.id}')">Editar</button> <button class="danger" onclick="deletePayment('${p.id}')">Eliminar</button></td></tr>`).join("")}</tbody></table>`:"<p>No has agregado métodos de pago.</p>";
+}
+function saveCurrency(){
+ const old=$("editCurrencyCode").value;
+ const code=$("newCode").value.trim().toUpperCase();
+ const name=$("newName").value.trim(),symbol=$("newSymbol").value.trim()||code;
+ const buy=number($("newBuy").value),sell=number($("newSell").value);
+ if(!/^[A-Z0-9]{3,8}$/.test(code)||!name){alert("Introduce un código válido y un nombre.");return}
+ const existing=db.currencies.find(c=>c.code===code);
+ if(existing&&old!==code){alert("Ese código ya existe. Edita la moneda existente.");return}
+ const item={code,name,symbol,buy,sell,active:$("newActive").value==="true"};
+ if(old){const i=db.currencies.findIndex(c=>c.code===old);if(i>=0)db.currencies[i]=item}
+ else db.currencies.push(item);
+ saveDB();clearCurrencyForm();refreshAll();$("adminStatus").textContent="Moneda guardada.";
+}
+function editCurrency(code){
+ const c=currency(code);if(!c)return;
+ $("editCurrencyCode").value=c.code;$("newCode").value=c.code;
+ $("newName").value=c.name;$("newSymbol").value=c.symbol;
+ $("newBuy").value=c.buy;$("newSell").value=c.sell;
+ $("newActive").value=String(c.active);
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function deleteCurrency(code){
+ if(!confirm("¿Eliminar "+code+"?"))return;
+ db.currencies=db.currencies.filter(c=>c.code!==code);
+ saveDB();refreshAll();
+}
+function clearCurrencyForm(){
+ ["editCurrencyCode","newCode","newName","newSymbol","newBuy","newSell"].forEach(id=>$(id).value="");
+ $("newActive").value="true";
+}
+function savePayment(){
+ const id=$("editPaymentId").value||String(Date.now());
+ const item={id,name:$("payName").value.trim(),provider:$("payProvider").value.trim(),
+ type:$("payType").value,currency:$("payCurrency").value,
+ details:$("payDetails").value.trim(),active:$("payActive").value==="true"};
+ if(!item.name){alert("Escribe el nombre del método de pago.");return}
+ const i=db.payments.findIndex(p=>p.id===id);
+ if(i>=0)db.payments[i]=item;else db.payments.push(item);
+ saveDB();clearPaymentForm();refreshAll();$("adminStatus").textContent="Método de pago guardado.";
+}
+function editPayment(id){
+ const p=db.payments.find(x=>x.id===id);if(!p)return;
+ $("editPaymentId").value=p.id;$("payName").value=p.name;
+ $("payProvider").value=p.provider;$("payType").value=p.type;
+ $("payCurrency").value=p.currency;$("payDetails").value=p.details;
+ $("payActive").value=String(p.active);
+}
+function deletePayment(id){
+ if(!confirm("¿Eliminar este método de pago?"))return;
+ db.payments=db.payments.filter(p=>p.id!==id);saveDB();refreshAll();
+}
+function clearPaymentForm(){
+ ["editPaymentId","payName","payProvider","payDetails"].forEach(id=>$(id).value="");
+ $("payActive").value="true";
+}
+function commissionCalc(){
+ const amount=Math.max(0,number($("commAmount").value));
+ const percent=Math.max(0,number($("commPercent").value));
+ const fixed=Math.max(0,number($("commFixed").value));
+ const costs=Math.max(0,number($("commCosts").value));
+ const fee=amount*percent/100+fixed;
+ const payer=$("commPayer").value;
+ const gross=payer==="client"?fee:0;
+ const businessPaid=payer==="business"?fee:0;
+ const net=gross-businessPaid-costs;
+ $("commResult").textContent="$"+fmt(fee,2);
+ $("commBreakdown").textContent=`Ingreso por comisión: $${fmt(gross)} · Costes: $${fmt(costs+businessPaid)} · Neto estimado: $${fmt(net)}`;
+ return {amount,fee,costs:costs+businessPaid,net,payer};
+}
+function recordCommission(){
+ const c=commissionCalc();
+ db.operations.push({id:String(Date.now()),client:"Operación calculada",
+ type:"Cambio de divisas",amount:c.amount,commission:c.fee,costs:c.costs,
+ net:c.net,status:"Registrada",date:new Date().toISOString()});
+ saveDB();refreshAll();$("adminStatus").textContent="Operación registrada.";
+}
+function addOperation(){
+ const amount=Math.max(0,number($("opAmount").value));
+ const commission=Math.max(0,number($("opCommission").value));
+ const costs=Math.max(0,number($("opCosts").value));
+ if(!amount){alert("Introduce un monto válido.");return}
+ db.operations.push({id:String(Date.now()),client:$("opClient").value.trim()||"Sin referencia",
+ type:$("opType").value,amount,commission,costs,net:commission-costs,
+ status:$("opStatus").value,date:new Date().toISOString()});
+ saveDB();refreshAll();
+ ["opClient","opAmount","opCommission","opCosts"].forEach(id=>$(id).value="");
+}
+function deleteOperation(id){
+ if(!confirm("¿Eliminar esta operación del registro local?"))return;
+ db.operations=db.operations.filter(o=>o.id!==id);saveDB();refreshAll();
+}
+function operationsHTML(){
+ return db.operations.length?`<table><thead><tr><th>Fecha / referencia</th><th>Tipo</th><th>Monto USD</th><th>Comisión</th><th>Costes</th><th>Neto</th><th>Estado</th><th></th></tr></thead><tbody>${db.operations.map(o=>`<tr><td>${esc(new Date(o.date).toLocaleDateString())}<br>${esc(o.client)}</td><td>${esc(o.type)}</td><td>${fmt(o.amount)}</td><td>${fmt(o.commission)}</td><td>${fmt(o.costs)}</td><td>${fmt(o.net)}</td><td>${esc(o.status)}</td><td><button class="danger" onclick="deleteOperation('${o.id}')">×</button></td></tr>`).join("")}</tbody></table>`:"<p>No hay operaciones registradas.</p>";
+}
+function renderOperations(){
+ $("opsTable").innerHTML=operationsHTML();$("opsTable2").innerHTML=operationsHTML();
+ const ops=db.operations;
+ $("statOps").textContent=ops.length;
+ $("statGross").textContent="$"+fmt(ops.reduce((s,o)=>s+number(o.commission),0));
+ $("statCosts").textContent="$"+fmt(ops.reduce((s,o)=>s+number(o.costs),0));
+ $("statNet").textContent="$"+fmt(ops.reduce((s,o)=>s+number(o.net),0));
+}
+function renderAdminCurrencies(){
+ $("adminCurrencyTable").innerHTML=`<table><thead><tr><th>Moneda</th><th>Compra</th><th>Venta</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>${db.currencies.map(c=>`<tr><td>${esc(c.code)}<br>${esc(c.name)}</td><td>${fmt(c.buy,4)}</td><td>${fmt(c.sell,4)}</td><td>${c.active?"Activa":"Inactiva"}</td><td><button class="outline" onclick="editCurrency('${c.code}')">Editar</button> <button class="danger" onclick="deleteCurrency('${c.code}')">Eliminar</button></td></tr>`).join("")}</tbody></table>`;
+}
+function renderDashboard(){
+ $("statCurrencies").textContent=db.currencies.length;
+ $("statPayments").textContent=db.payments.length;
+ renderAdminCurrencies();renderPayments();renderOperations();
+ $("setName").value=db.name;$("setPhone").value=db.phone;
+ $("setHero").value=db.hero;$("setNote").value=db.note;
+}
+function saveSettings(){
+ db.name=$("setName").value.trim()||"Adrian Cambio";
+ db.phone=$("setPhone").value.replace(/\D/g,"");
+ db.hero=$("setHero").value.trim();db.note=$("setNote").value.trim();
+ saveDB();refreshAll();$("settingsStatus").textContent="Configuración guardada.";
+}
+function changeCredentials(){
+ const u=$("newAdminUser").value.trim(),p=$("newAdminPass").value;
+ if(u.length<3||p.length<10){$("settingsStatus").textContent="Usa un usuario de al menos 3 caracteres y contraseña de al menos 10.";return}
+ db.adminUser=u;db.adminPass=p;saveDB();
+ $("newAdminUser").value="";$("newAdminPass").value="";
+ $("settingsStatus").textContent="Credenciales locales actualizadas. No son seguras frente a inspección del código.";
+}
+function exportData(){
+ const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="adrian-cambio-respaldo.json";a.click();URL.revokeObjectURL(url);
+}
+$("importFile").addEventListener("change",async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{
+  const imported=JSON.parse(await file.text());
+  if(!Array.isArray(imported.currencies)||!Array.isArray(imported.payments)||!Array.isArray(imported.operations))throw Error();
+  if(!confirm("Importar reemplazará la configuración actual. ¿Continuar?"))return;
+  db={...structuredClone(DEFAULTS),...imported};saveDB();refreshAll();alert("Respaldo importado.");
+ }catch(err){alert("El archivo no parece ser un respaldo válido de Adrian Cambio.")}
+ e.target.value="";
+});
+function resetEverything(){
+ if(!confirm("Esto borrará monedas, pagos, operaciones y configuración de este navegador. ¿Continuar?"))return;
+ localStorage.removeItem(STORE);db=structuredClone(DEFAULTS);initCurrencies();refreshAll();logout();
+}
+function openAdmin(){
+ $("adminModal").classList.remove("hidden");
+ $("loginView").classList.remove("hidden");$("dashboard").classList.add("hidden");
+ $("loginStatus").textContent="";$("loginPass").value="";
+}
+function closeAdmin(){$("adminModal").classList.add("hidden")}
+function logout(){authenticated=false;openAdmin();$("loginUser").value=""}
+$("loginForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if($("loginUser").value===db.adminUser&&$("loginPass").value===db.adminPass){
+  authenticated=true;$("loginView").classList.add("hidden");
+  $("dashboard").classList.remove("hidden");renderDashboard();
+ }else{$("loginStatus").textContent="Usuario o contraseña incorrectos.";$("loginPass").value=""}
+});
+$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAdmin()});
+document.querySelectorAll(".tabs button").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+ document.querySelectorAll(".adminSection").forEach(s=>s.classList.remove("active"));
+ btn.classList.add("active");$(btn.dataset.tab).classList.add("active");
+}));
+$("requestForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const name=$("clientName").value.trim(),service=$("service").value;
+ const amount=$("reqAmount").value,curr=$("reqCurrency").value;
+ const details=$("details").value.trim();
+ let msg=`Hola, ${db.name}. Quiero consultar una operación.\nNombre: ${name}\nServicio: ${service}`;
+ if(amount)msg+=`\nMonto aproximado: ${amount} ${curr}`;
+ if(details)msg+=`\nDetalles: ${details}`;
+ msg+="\nPor favor, confirmen la tasa vigente y los requisitos.";
+ window.open(wa(msg),"_blank","noopener,noreferrer");
+});
+["amount","from","to"].forEach(id=>$(id).addEventListener("input",calculate));
+["commAmount","commPercent","commFixed","commCosts","commPayer"].forEach(id=>$(id).addEventListener("input",commissionCalc));
+function refreshAll(){
+ renderLinks();renderRates();renderCurrencySelects();renderCurrencies();
+ renderPayments();renderDashboard();calculate();commissionCalc();
+}
+$("year").textContent=new Date().getFullYear();
+initCurrencies();refreshAll();
 </script>
 </body>
 </html>
