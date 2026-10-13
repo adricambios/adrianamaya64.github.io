@@ -1,662 +1,81 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0a0a0a">
-<title>Adrian Cambio | Remesas y Divisas</title>
-<style>
-:root{
- --bg:#090909;--panel:#141414;--gold:#d8b45a;
- --gold2:#f5dc96;--text:#f7f4ec;--muted:#aaa69c;
- --line:#3b301a;--green:#25d366;--red:#ff7878
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);
- font:15px/1.6 system-ui,Arial,sans-serif}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-a{color:var(--gold2);text-decoration:none}
-.wrap{width:min(1180px,94%);margin:auto}
-header{border-bottom:1px solid var(--line);background:#0d0d0d}
-nav{display:flex;align-items:center;justify-content:space-between;
- gap:15px;padding:16px 0;flex-wrap:wrap}
-.brand{font-weight:950;letter-spacing:1.5px;color:var(--gold2);
- font-size:20px}
-.brand small{display:block;font-size:10px;color:var(--muted);
- letter-spacing:2px}
-.links{display:flex;gap:16px;flex-wrap:wrap}
-.links a{font-size:13px;color:#eee}
-button,.btn{border:0;border-radius:10px;padding:11px 15px;
- font-weight:750;display:inline-block}
-.goldbtn{background:linear-gradient(135deg,var(--gold2),var(--gold));
- color:#17120a}
-.outline{background:transparent;border:1px solid var(--gold);
- color:var(--gold2)}
-.greenbtn{background:var(--green);color:#09230e}
-.hero{padding:65px 0;background:
- radial-gradient(ellipse at 90% 10%,#3a2b0e,transparent 40%),
- linear-gradient(145deg,#10100e,#090909)}
-.heroGrid,.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.eyebrow{font-size:11px;letter-spacing:2px;color:var(--gold);
- font-weight:900;text-transform:uppercase}
-h1{font-size:clamp(38px,6vw,66px);line-height:1.05;
- letter-spacing:-1.5px;margin:15px 0}
-h2{font-size:clamp(26px,4vw,38px);line-height:1.15}
-h3{margin-top:0}
-p{color:var(--muted)}
-section{padding:50px 0}
-.card{background:linear-gradient(145deg,#181818,#101010);
- border:1px solid var(--line);border-radius:17px;padding:23px;
- min-width:0}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
- gap:15px}
-.stat{background:#211a0c;border:1px solid #594622;
- padding:16px;border-radius:13px}
-.stat strong{display:block;font-size:23px;color:var(--gold2);
- overflow-wrap:anywhere}
-.field{display:grid;gap:6px;margin:12px 0}
-label{font-size:13px;color:#ded5c0;font-weight:700}
-input,select,textarea{width:100%;padding:11px;
- border:1px solid #4a402b;background:#0a0a0a;color:white;
- border-radius:9px;min-width:0}
-input:focus,select:focus,textarea:focus{outline:1px solid var(--gold)}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
-.muted{color:var(--muted);font-size:13px}
-.result{margin-top:14px;background:#241d0e;border:1px solid #655025;
- padding:16px;border-radius:12px}
-.result strong{display:block;color:var(--gold2);font-size:27px;
- overflow-wrap:anywhere}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{text-align:left;padding:10px 7px;border-bottom:1px solid #30291c}
-th{color:var(--gold2)}
-.tableWrap{overflow:auto}
-.pill{display:inline-block;border:1px solid #574522;
- border-radius:30px;padding:3px 9px;color:var(--gold2);font-size:11px}
-.payment{padding:13px;background:#0c0c0c;border:1px solid #30291c;
- border-radius:10px;margin:9px 0}
-footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted)}
-.hidden{display:none!important}
-#adminModal{position:fixed;inset:0;z-index:50;background:#000d;
- overflow:auto;padding:15px}
-.adminPanel{max-width:1050px;margin:20px auto;background:#111;
- border:1px solid var(--gold);border-radius:17px;padding:22px}
-.adminHead{display:flex;justify-content:space-between;align-items:center;
- gap:10px;flex-wrap:wrap}
-.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0}
-.tabs button{background:#242016;color:#eee;border:1px solid #4c3b1d}
-.tabs button.active{background:var(--gold);color:#111}
-.adminSection{display:none}
-.adminSection.active{display:block}
-.notice{padding:12px;background:#211a0c;border-radius:10px;
- color:#e9d9aa;font-size:12px;margin:12px 0}
-.status{min-height:22px;color:var(--gold2);font-size:13px}
-.danger{background:#492020;color:white}
-@media(max-width:760px){
- .heroGrid,.two{grid-template-columns:1fr}
- .grid{grid-template-columns:1fr 1fr}
- .links{gap:10px}
- section{padding:35px 0}
- .card{padding:16px}
-}
-@media(max-width:440px){.grid{grid-template-columns:1fr}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Adri Cambios: remesas y cambios internacionales hacia Venezuela.">
+  <title>Adri Cambios | Remesas y cambio internacional</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
- <div class="wrap"><nav>
-  <a class="brand" href="#inicio">◆ ADRIAN CAMBIO
-   <small>REMESAS · DIVISAS · CONFIANZA</small></a>
-  <div class="links">
-   <a href="#servicios">Servicios</a>
-   <a href="#calculadora">Calculadora</a>
-   <a href="#monedas">Monedas</a>
-   <a href="#pagos">Pagos</a>
-  </div>
-  <button class="outline" onclick="openAdmin()">⚙ Administrar</button>
- </nav></div>
-</header>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Adri Cambios inicio"><span class="brand-mark">A<span>C</span></span><span class="brand-name">ADRI <b>CAMBIOS</b><small>REMESAS INTERNACIONALES</small></span></a>
+    <nav><a href="#tasas">Tasas</a><a href="#calculadora">Calculadora</a><a href="#enviar">Enviar dinero</a><a class="nav-admin" href="admin.html">Administrar</a></nav>
+  </header>
 
-<main>
-<section class="hero" id="inicio"><div class="wrap heroGrid">
- <div>
-  <div class="eyebrow">Tu aliado financiero internacional</div>
-  <h1>Tu dinero,<br><span style="color:var(--gold2)">más cerca de casa.</span></h1>
-  <p id="heroText">Remesas hacia Venezuela, cambio de divisas y envíos internacionales con atención personalizada.</p>
-  <div class="actions">
-   <a class="btn goldbtn" href="#calculadora">Calcular cambio</a>
-   <a class="btn outline" id="heroWA" target="_blank" rel="noopener">Consultar por WhatsApp ↗</a>
-  </div>
- </div>
- <div class="card">
-  <div class="eyebrow">Cotizaciones</div><h3>Tasas de referencia</h3>
-  <div id="featuredRates"></div>
-  <p class="muted">Tasas configuradas por el administrador. Confirma el precio antes de operar.</p>
- </div>
-</div></section>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> CONECTANDO FAMILIAS</p>
+        <h1>Tu dinero,<br><em>más cerca de casa.</em></h1>
+        <p class="hero-text">Remesas y cambio internacional hacia Venezuela, con atención cercana y condiciones claras.</p>
+        <div class="hero-actions"><a class="button gold-button" href="#enviar">Solicitar envío <span>↗</span></a><a class="text-link" href="#calculadora">Calcular remesa ↓</a></div>
+        <div class="trust-row"><span>◆ Tasas transparentes</span><span>◆ Atención por WhatsApp</span></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración decorativa de transferencia internacional">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="gold-coin">AC</div>
+        <div class="float-card card-left"><small>ENVÍO INTERNACIONAL</small><b>Simple y claro</b><span>De tu país a Venezuela</span></div>
+        <div class="float-card card-right"><small>ADRI CAMBIOS</small><b>✦</b><span>Conectamos destinos</span></div>
+        <div class="art-caption">CONFIANZA EN CADA ENVÍO</div>
+      </div>
+    </section>
 
-<section id="servicios"><div class="wrap">
- <div class="eyebrow">Nuestros servicios</div><h2>Soluciones para tu dinero</h2>
- <div class="grid">
-  <article class="card"><h3>↗ Remesas</h3><p>Solicita información para enviar dinero a Venezuela.</p></article>
-  <article class="card"><h3>⇄ Cambio de divisas</h3><p>Consulta cotizaciones y calcula conversiones estimadas.</p></article>
-  <article class="card"><h3>◎ Envíos internacionales</h3><p>Consulta disponibilidad, destinos y requisitos.</p></article>
-  <article class="card"><h3>＄ Compra de divisas</h3><p>Solicita una cotización personalizada.</p></article>
-  <article class="card"><h3>Bs Venta de divisas</h3><p>Consulta las tasas de venta configuradas.</p></article>
-  <article class="card"><h3>◷ Consulta de tasas</h3><p>Revisa los valores publicados para cada moneda.</p></article>
- </div>
-</div></section>
+    <section class="ticker"><span>REMESAS</span><b>✦</b><span>CAMBIO INTERNACIONAL</span><b>✦</b><span>VENEZUELA</span><b>✦</b><span>ATENCIÓN PERSONALIZADA</span></section>
 
-<section id="calculadora" style="background:#0e0e0d"><div class="wrap">
- <div class="eyebrow">Conversor</div><h2>Calculadora de divisas</h2>
- <div class="two">
-  <div class="card">
-   <div class="field"><label>Monto</label><input id="amount" type="number" min="0" step="any" value="100"></div>
-   <div class="field"><label>Moneda de origen</label><select id="from"></select></div>
-   <div class="field"><label>Moneda de destino</label><select id="to"></select></div>
-   <button class="outline" onclick="swapCurrencies()">⇅ Intercambiar</button>
-   <div class="result"><span class="muted">Resultado estimado</span><strong id="conversion">—</strong><span id="formula" class="muted"></span></div>
-  </div>
-  <div class="card"><h3>Tasas publicadas</h3><div id="rateTable" class="tableWrap"></div></div>
- </div>
-</div></section>
+    <section class="section" id="tasas">
+      <div class="section-heading"><div><p class="eyebrow">INFORMACIÓN ACTUALIZABLE</p><h2>Tasas y condiciones</h2></div><p class="muted">Consulta las tasas publicadas por Adri Cambios antes de solicitar tu operación.</p></div>
+      <div class="rate-grid">
+        <article class="rate-card featured"><div class="rate-top"><span>TASA DE HOY</span><span class="status-dot">● PUBLICADA</span></div><div class="rate-number" id="todayRate">—</div><div class="rate-label" id="todayLabel">COP → VES</div><div class="rate-foot">Actualizada: <span id="updatedAt">Pendiente de configurar</span></div></article>
+        <article class="rate-card"><div class="rate-top"><span>TASA DE MAÑANA</span><span class="pill">PROGRAMADA</span></div><div class="rate-number" id="tomorrowRate">—</div><div class="rate-label" id="tomorrowLabel">COP → VES</div><div class="rate-foot">Vigencia: <span id="tomorrowDate">Por confirmar</span></div></article>
+        <article class="rate-card"><div class="rate-top"><span>COMISIÓN</span><span class="pill">POR OPERACIÓN</span></div><div class="rate-number" id="feeDisplay">—</div><div class="rate-label">Comisión de servicio</div><div class="rate-foot" id="limitsDisplay">Límites por configurar</div></article>
+      </div>
+      <p class="notice"><span>ⓘ</span> Las tasas iniciales están pendientes de configuración. Confirma el valor final por WhatsApp antes de realizar cualquier pago.</p>
+    </section>
 
-<section id="monedas"><div class="wrap">
- <div class="eyebrow">Catálogo internacional</div><h2>Monedas disponibles</h2>
- <p>La lista se genera con los códigos monetarios reconocidos por el navegador cuando son compatibles. Puedes agregar cualquier moneda manualmente desde administración.</p>
- <div class="card"><div class="field"><label>Buscar moneda</label><input id="currencySearch" placeholder="Buscar por código o nombre..." oninput="renderCurrencies()"></div>
- <div class="tableWrap" id="currencyTable"></div></div>
-</div></section>
+    <section class="section calculator-section" id="calculadora">
+      <div class="section-heading"><div><p class="eyebrow">CALCULA ANTES DE ENVIAR</p><h2>Calculadora de remesas</h2></div><p class="muted">Obtén una estimación usando la tasa configurada.</p></div>
+      <div class="calculator">
+        <div class="calc-form">
+          <label for="currency">Moneda que envías</label><select id="currency"></select>
+          <label for="amount">Cantidad a enviar</label><div class="amount-input"><span id="currencySymbol">$</span><input id="amount" type="number" min="0" step="any" placeholder="100.00" value="100"></div>
+          <div class="calc-row"><span>Comisión estimada</span><b id="calcFee">—</b></div><div class="calc-row"><span>Total a pagar</span><b id="calcTotal">—</b></div><div class="calc-row"><span>Porcentaje aplicado</span><b id="calcPercent">—</b></div>
+        </div>
+        <div class="calc-result"><span class="result-kicker">EL DESTINATARIO RECIBE APROX.</span><div class="result-amount" id="receiveAmount">—</div><div class="result-currency" id="receiveCurrency">VES</div><div class="result-divider"></div><p id="calcExplanation">Configura una tasa desde el panel de administración para activar el cálculo.</p><a href="#enviar" class="button gold-button">Continuar con solicitud ↗</a></div>
+      </div>
+    </section>
 
-<section id="pagos" style="background:#0e0e0d"><div class="wrap">
- <div class="eyebrow">Formas de pago</div><h2>Métodos disponibles</h2>
- <p>Los métodos que el administrador publique aparecerán aquí.</p>
- <div id="publicPayments"></div>
-</div></section>
-
-<section id="solicitud"><div class="wrap">
- <div class="eyebrow">Atención personalizada</div><h2>Solicita una operación</h2>
- <div class="two">
-  <div class="card"><h3>¿Necesitas ayuda?</h3>
-   <p>Envíanos tu solicitud por WhatsApp para confirmar tasa, disponibilidad y requisitos.</p>
-   <a class="btn greenbtn" id="contactWA" target="_blank" rel="noopener">Abrir WhatsApp ↗</a>
-  </div>
-  <form class="card" id="requestForm">
-   <div class="field"><label>Nombre</label><input id="clientName" required maxlength="80"></div>
-   <div class="field"><label>Servicio</label><select id="service">
-    <option>Remesa hacia Venezuela</option><option>Cambio de divisas</option>
-    <option>Envío internacional</option><option>Compra de divisas</option>
-    <option>Venta de divisas</option><option>Consulta de tasas</option>
-   </select></div>
-   <div class="field"><label>Monto aproximado</label><input id="reqAmount" type="number" min="0" step="any"></div>
-   <div class="field"><label>Moneda</label><select id="reqCurrency"></select></div>
-   <div class="field"><label>Destino o detalles</label><textarea id="details" rows="3" maxlength="500"></textarea></div>
-   <button class="goldbtn" type="submit">Preparar mensaje por WhatsApp</button>
-   <p class="muted">El mensaje solo se envía cuando lo confirmes en WhatsApp.</p>
-  </form>
- </div>
-</div></section>
-</main>
-<footer><div class="wrap">© <span id="year"></span> Adrian Cambio · Tasas indicativas, sujetas a confirmación.</div></footer>
-
-<div id="adminModal" class="hidden">
-<div class="adminPanel">
- <div id="loginView">
-  <div class="adminHead"><div><div class="eyebrow">Área privada local</div><h2>Inicio de sesión</h2></div><button class="outline" onclick="closeAdmin()">Cerrar</button></div>
-  <p>Introduce las credenciales del administrador.</p>
-  <form id="loginForm">
-   <div class="field"><label>Usuario</label><input id="loginUser" autocomplete="username" required></div>
-   <div class="field"><label>Contraseña</label><input id="loginPass" type="password" autocomplete="current-password" required></div>
-   <button class="goldbtn">Iniciar sesión</button><div id="loginStatus" class="status"></div>
-  </form>
-  <div class="notice">Credenciales iniciales del ejemplo: usuario <b>admin</b>, contraseña <b>ACambio2026!</b>. Cámbialas en el código. Este inicio de sesión no es seguro frente a inspección del código fuente y no debe utilizarse como protección real en una web pública.</div>
- </div>
-
- <div id="dashboard" class="hidden">
-  <div class="adminHead"><div><div class="eyebrow">Control total local</div><h2>Panel de administración</h2></div>
-   <div class="actions"><button class="outline" onclick="exportData()">Exportar respaldo</button><button class="outline" onclick="document.getElementById('importFile').click()">Importar</button><button class="danger" onclick="logout()">Cerrar sesión</button></div>
-  </div>
-  <input type="file" id="importFile" accept="application/json,.json" class="hidden">
-  <div class="notice">Los datos se guardan en este navegador. No se sincronizan automáticamente con los dispositivos de tus clientes. Usa exportar para crear una copia de respaldo.</div>
-  <div class="tabs">
-   <button class="active" data-tab="overview">Resumen</button>
-   <button data-tab="currencyAdmin">Monedas y tasas</button>
-   <button data-tab="paymentAdmin">Métodos de pago</button>
-   <button data-tab="commissionAdmin">Comisiones</button>
-   <button data-tab="operationAdmin">Operaciones</button>
-   <button data-tab="settingsAdmin">Configuración</button>
-  </div>
-
-  <div class="adminSection active" id="overview">
-   <div class="grid">
-    <div class="stat">Monedas<strong id="statCurrencies">0</strong></div>
-    <div class="stat">Métodos de pago<strong id="statPayments">0</strong></div>
-    <div class="stat">Operaciones registradas<strong id="statOps">0</strong></div>
-    <div class="stat">Comisiones brutas<strong id="statGross">$0</strong></div>
-    <div class="stat">Costes registrados<strong id="statCosts">$0</strong></div>
-    <div class="stat">Ganancia neta estimada<strong id="statNet">$0</strong></div>
-   </div>
-   <p class="muted">Los totales de comisión están expresados en USD como referencia. Solo suma registros que hayas introducido en USD.</p>
-  </div>
-
-  <div class="adminSection" id="currencyAdmin">
-   <h3>Agregar o editar moneda</h3>
-   <input type="hidden" id="editCurrencyCode">
-   <div class="grid">
-    <div class="field"><label>Código ISO / código propio</label><input id="newCode" placeholder="BRL" maxlength="8"></div>
-    <div class="field"><label>Nombre</label><input id="newName" placeholder="Real brasileño"></div>
-    <div class="field"><label>Símbolo</label><input id="newSymbol" placeholder="R$"></div>
-    <div class="field"><label>Tasa de compra en VES por unidad</label><input id="newBuy" type="number" min="0" step="any" placeholder="0"></div>
-    <div class="field"><label>Tasa de venta en VES por unidad</label><input id="newSell" type="number" min="0" step="any" placeholder="0"></div>
-    <div class="field"><label>Activa</label><select id="newActive"><option value="true">Sí</option><option value="false">No</option></select></div>
-   </div>
-   <div class="actions"><button class="goldbtn" onclick="saveCurrency()">Guardar moneda</button><button class="outline" onclick="clearCurrencyForm()">Limpiar</button></div>
-   <h3>Catálogo de monedas</h3><div class="tableWrap" id="adminCurrencyTable"></div>
-  </div>
-
-  <div class="adminSection" id="paymentAdmin">
-   <h3>Agregar método de pago</h3>
-   <input type="hidden" id="editPaymentId">
-   <div class="grid">
-    <div class="field"><label>Nombre del método</label><input id="payName" placeholder="Transferencia bancaria"></div>
-    <div class="field"><label>Banco o proveedor</label><input id="payProvider" placeholder="Nombre del banco"></div>
-    <div class="field"><label>Tipo</label><select id="payType"><option>Transferencia bancaria</option><option>Pago móvil</option><option>Billetera digital</option><option>Efectivo</option><option>Criptomoneda</option><option>Otro</option></select></div>
-    <div class="field"><label>Moneda admitida</label><select id="payCurrency"></select></div>
-    <div class="field"><label>Datos públicos de pago</label><input id="payDetails" placeholder="Datos que quieres mostrar al cliente"></div>
-    <div class="field"><label>Estado</label><select id="payActive"><option value="true">Visible</option><option value="false">Oculto</option></select></div>
-   </div>
-   <div class="actions"><button class="goldbtn" onclick="savePayment()">Guardar método</button><button class="outline" onclick="clearPaymentForm()">Limpiar</button></div>
-   <p class="muted">No introduzcas contraseñas, PIN, códigos de autenticación ni datos secretos.</p>
-   <h3>Métodos guardados</h3><div class="tableWrap" id="adminPaymentTable"></div>
-  </div>
-
-  <div class="adminSection" id="commissionAdmin">
-   <h3>Calculadora de comisiones</h3>
-   <div class="grid">
-    <div class="field"><label>Monto de operación en USD</label><input id="commAmount" type="number" min="0" value="500"></div>
-    <div class="field"><label>Comisión porcentual (%)</label><input id="commPercent" type="number" min="0" step="any" value="2"></div>
-    <div class="field"><label>Comisión fija (USD)</label><input id="commFixed" type="number" min="0" step="any" value="1"></div>
-    <div class="field"><label>Otros costes (USD)</label><input id="commCosts" type="number" min="0" step="any" value="2"></div>
-    <div class="field"><label>Quién paga la comisión</label><select id="commPayer"><option value="client">El cliente</option><option value="business">El negocio</option></select></div>
-   </div>
-   <div class="result"><span>Comisión calculada</span><strong id="commResult">$0.00</strong><span id="commBreakdown" class="muted"></span></div>
-   <button class="goldbtn" onclick="recordCommission()">Registrar operación con esta comisión</button>
-   <h3>Historial de operaciones</h3><div class="tableWrap" id="opsTable"></div>
-  </div>
-
-  <div class="adminSection" id="operationAdmin">
-   <h3>Registrar operación manualmente</h3>
-   <div class="grid">
-    <div class="field"><label>Cliente o referencia</label><input id="opClient" placeholder="Cliente / referencia"></div>
-    <div class="field"><label>Tipo de operación</label><select id="opType"><option>Remesa</option><option>Cambio de divisas</option><option>Envío internacional</option><option>Compra de divisas</option><option>Venta de divisas</option></select></div>
-    <div class="field"><label>Monto de la operación en USD</label><input id="opAmount" type="number" min="0" step="any"></div>
-    <div class="field"><label>Comisión bruta en USD</label><input id="opCommission" type="number" min="0" step="any"></div>
-    <div class="field"><label>Costes en USD</label><input id="opCosts" type="number" min="0" step="any"></div>
-    <div class="field"><label>Estado</label><select id="opStatus"><option>Pendiente</option><option>En proceso</option><option>Completada</option><option>Cancelada</option></select></div>
-   </div>
-   <button class="goldbtn" onclick="addOperation()">Guardar operación</button>
-   <h3>Operaciones guardadas</h3><div class="tableWrap" id="opsTable2"></div>
-  </div>
-
-  <div class="adminSection" id="settingsAdmin">
-   <h3>Datos del negocio</h3>
-   <div class="grid">
-    <div class="field"><label>Nombre comercial</label><input id="setName"></div>
-    <div class="field"><label>WhatsApp con código de país</label><input id="setPhone" placeholder="584121587887"></div>
-    <div class="field"><label>Texto principal</label><input id="setHero"></div>
-    <div class="field"><label>Nota de tasas</label><input id="setNote"></div>
-   </div>
-   <button class="goldbtn" onclick="saveSettings()">Guardar configuración</button>
-   <hr style="border-color:var(--line);margin:25px 0">
-   <h3>Cambiar credenciales de acceso local</h3>
-   <div class="grid">
-    <div class="field"><label>Nuevo usuario</label><input id="newAdminUser" autocomplete="off"></div>
-    <div class="field"><label>Nueva contraseña</label><input id="newAdminPass" type="password" autocomplete="new-password"></div>
-   </div>
-   <button class="outline" onclick="changeCredentials()">Actualizar credenciales</button>
-   <div id="settingsStatus" class="status"></div>
-   <hr style="border-color:var(--line);margin:25px 0">
-   <h3>Restablecimiento</h3><p class="muted">Esto elimina los datos guardados localmente de Adrian Cambio en este navegador.</p>
-   <button class="danger" onclick="resetEverything()">Borrar todos los datos locales</button>
-  </div>
-  <p class="status" id="adminStatus"></p>
- </div>
-</div>
-</div>
-
-<script>
-"use strict";
-const STORE="adrianCambioCompleteV1";
-const DEFAULTS={
- name:"Adrian Cambio",phone:"584121587887",
- hero:"Remesas hacia Venezuela, cambio de divisas y envíos internacionales con atención personalizada.",
- note:"Tasas indicativas. Confirma la cotización vigente antes de operar.",
- currencies:[],payments:[],operations:[],
- adminUser:"admin",adminPass:"ACambio2026!"
-};
-let db=loadDB(),authenticated=false;
-const $=id=>document.getElementById(id);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const number=v=>Number.isFinite(Number(v))?Number(v):0;
-const fmt=(n,dec=2)=>number(n).toLocaleString("es-VE",{minimumFractionDigits:dec,maximumFractionDigits:dec});
-function loadDB(){
- try{const d=JSON.parse(localStorage.getItem(STORE));if(d&&Array.isArray(d.currencies))return {...structuredClone(DEFAULTS),...d,currencies:d.currencies,payments:d.payments||[],operations:d.operations||[]}}catch(e){}
- return structuredClone(DEFAULTS);
-}
-function saveDB(){
- try{localStorage.setItem(STORE,JSON.stringify(db));return true}
- catch(e){alert("No se pudieron guardar los datos. Exporta un respaldo o libera espacio del navegador.");return false}
-}
-const currencyNames={
- USD:"Dólar estadounidense",VES:"Bolívar venezolano",BRL:"Real brasileño",
- EUR:"Euro",CAD:"Dólar canadiense",GBP:"Libra esterlina",MXN:"Peso mexicano",
- COP:"Peso colombiano",ARS:"Peso argentino",CLP:"Peso chileno",PEN:"Sol peruano",
- UYU:"Peso uruguayo",PYG:"Guaraní paraguayo",BOB:"Boliviano",DOP:"Peso dominicano",
- CRC:"Colón costarricense",GTQ:"Quetzal guatemalteco",HNL:"Lempira hondureño",
- NIO:"Córdoba nicaragüense",PAB:"Balboa panameño",CUP:"Peso cubano",
- JPY:"Yen japonés",CNY:"Yuan chino",INR:"Rupia india",KRW:"Won surcoreano",
- AUD:"Dólar australiano",NZD:"Dólar neozelandés",CHF:"Franco suizo",
- SEK:"Corona sueca",NOK:"Corona noruega",DKK:"Corona danesa",PLN:"Zloty polaco",
- CZK:"Corona checa",HUF:"Forinto húngaro",RON:"Leu rumano",TRY:"Lira turca",
- RUB:"Rublo ruso",UAH:"Grivna ucraniana",ILS:"Nuevo séquel israelí",
- AED:"Dírham de Emiratos Árabes Unidos",SAR:"Riyal saudí",QAR:"Riyal catarí",
- KWD:"Dinar kuwaití",BHD:"Dinar bareiní",OMR:"Rial omaní",JOD:"Dinar jordano",
- EGP:"Libra egipcia",MAD:"Dírham marroquí",TND:"Dinar tunecino",
- ZAR:"Rand sudafricano",NGN:"Naira nigeriana",GHS:"Cedi ghanés",
- KES:"Chelín keniano",UGX:"Chelín ugandés",TZS:"Chelín tanzano",
- XOF:"Franco CFA BCEAO",XAF:"Franco CFA BEAC",ETB:"Birr etíope",
- PKR:"Rupia pakistaní",BDT:"Taka bangladesí",LKR:"Rupia de Sri Lanka",
- NPR:"Rupia nepalí",THB:"Baht tailandés",VND:"Dong vietnamita",
- IDR:"Rupia indonesia",MYR:"Ringgit malasio",SGD:"Dólar de Singapur",
- HKD:"Dólar de Hong Kong",TWD:"Nuevo dólar taiwanés",PHP:"Peso filipino",
- ISK:"Corona islandesa",ALL:"Lek albanés",RSD:"Dinar serbio",BAM:"Marco convertible",
- BGN:"Lev búlgaro",MDL:"Leu moldavo",GEL:"Lari georgiano",KZT:"Tenge kazajo",
- UZS:"Som uzbeko",AZN:"Manat azerbaiyano",AMD:"Dram armenio",
- IQD:"Dinar iraquí",IRR:"Rial iraní",LBP:"Libra libanesa",
- DZD:"Dinar argelino",LYD:"Dinar libio",SDG:"Libra sudanesa",
- XCD:"Dólar del Caribe Oriental",JMD:"Dólar jamaiquino",
- TTD:"Dólar de Trinidad y Tobago",BBD:"Dólar de Barbados",
- BSD:"Dólar bahameño",BZD:"Dólar beliceño",GYD:"Dólar guyanés",
- SRD:"Dólar surinamés",FJD:"Dólar fiyiano",PGK:"Kina de Papúa Nueva Guinea",
- XPF:"Franco CFP",MUR:"Rupia mauriciana",SCR:"Rupia seychellense",
- BWP:"Pula botsuano",NAD:"Dólar namibio",MZN:"Metical mozambiqueño",
- AOA:"Kwanza angoleño",ZMW:"Kwacha zambiano",RWF:"Franco ruandés",
- XDR:"Derechos especiales de giro"
-};
-const fallbackCodes=Object.keys(currencyNames);
-function getAllCurrencyCodes(){
- let codes=[];
- try{if(Intl.supportedValuesOf)codes=Intl.supportedValuesOf("currency")}catch(e){}
- return [...new Set([...codes,...fallbackCodes])].sort();
-}
-function initCurrencies(){
- if(db.currencies.length)return;
- db.currencies=getAllCurrencyCodes().map(code=>({
-  code,name:currencyNames[code]||getIntlName(code)||code,
-  symbol:getSymbol(code),buy:0,sell:0,active:true
- }));
- const defaults={USD:[36.5,37],VES:[1,1],BRL:[6.5,7],EUR:[39,40],CAD:[26,27]};
- db.currencies.forEach(c=>{if(defaults[c.code]){c.buy=defaults[c.code][0];c.sell=defaults[c.code][1]}});
- saveDB();
-}
-function getIntlName(code){
- try{return new Intl.DisplayNames(["es"],{type:"currency"}).of(code)||code}catch(e){return code}
-}
-function getSymbol(code){
- try{return new Intl.NumberFormat("es",{style:"currency",currency:code,currencyDisplay:"narrowSymbol"}).formatToParts(1).find(x=>x.type==="currency")?.value||code}catch(e){return code}
-}
-function activeCurrencies(){return db.currencies.filter(c=>c.active)}
-function currency(code){return db.currencies.find(c=>c.code===code)}
-function wa(message){
- const phone=String(db.phone).replace(/\D/g,"");
- return "https://wa.me/"+phone+"?text="+encodeURIComponent(message);
-}
-function renderLinks(){
- $("heroText").textContent=db.hero;
- $("heroWA").href=wa("Hola, "+db.name+". Quiero consultar sus servicios.");
- $("contactWA").href=wa("Hola, "+db.name+". Quiero información sobre una operación.");
- document.title=db.name+" | Remesas y Divisas";
-}
-function renderRates(){
- const featured=activeCurrencies().filter(c=>c.buy>0||c.sell>0).slice(0,6);
- $("featuredRates").innerHTML=featured.length?featured.map(c=>`
- <div class="payment"><b>${esc(c.code)} · ${esc(c.name)}</b>
- <div class="muted">Compra: ${fmt(c.buy,4)} VES · Venta: ${fmt(c.sell,4)} VES</div></div>`).join(""):"<p>No hay tasas configuradas todavía.</p>";
- const rows=activeCurrencies().filter(c=>c.buy>0||c.sell>0);
- $("rateTable").innerHTML=rows.length?`<table><thead><tr><th>Moneda</th><th>Compra VES</th><th>Venta VES</th></tr></thead><tbody>${rows.map(c=>`<tr><td>${esc(c.code)} · ${esc(c.name)}</td><td>${fmt(c.buy,4)}</td><td>${fmt(c.sell,4)}</td></tr>`).join("")}</tbody></table>`:"<p>El administrador todavía no ha configurado tasas.";
-}
-function fillSelect(id,includeInactive=false){
- const el=$(id),old=el.value;
- const list=includeInactive?db.currencies:activeCurrencies();
- el.innerHTML=list.map(c=>`<option value="${esc(c.code)}">${esc(c.code)} — ${esc(c.name)}</option>`).join("");
- if(list.some(c=>c.code===old))el.value=old;
-}
-function renderCurrencySelects(){
- ["from","to","reqCurrency","payCurrency"].forEach(id=>fillSelect(id));
- if(!$("from").value)$("from").value="USD";
- if(!$("to").value)$("to").value="VES";
-}
-function convert(amount,from,to){
- if(from===to)return amount;
- const a=currency(from),b=currency(to);
- if(!a||!b)return NaN;
- // Tasas introducidas como VES por unidad. Usa compra al convertir desde la moneda
- // y venta al calcular la cantidad necesaria de la moneda de destino.
- const base=a.buy>0?a.buy:a.sell;
- const target=b.sell>0?b.sell:b.buy;
- if(!(base>0&&target>0))return NaN;
- return amount*base/target;
-}
-function calculate(){
- const amount=number($("amount").value),from=$("from").value,to=$("to").value;
- const result=convert(amount,from,to);
- $("conversion").textContent=amount>0&&Number.isFinite(result)?
-  fmt(result,4)+" "+to:"Configura tasas para calcular";
- $("formula").textContent=amount>0&&Number.isFinite(result)?
-  `${fmt(amount,4)} ${from} → ${fmt(result,4)} ${to}`:
-  "El resultado es estimado y depende de las tasas configuradas.";
-}
-function swapCurrencies(){
- const a=$("from").value;$("from").value=$("to").value;$("to").value=a;calculate();
-}
-function renderCurrencies(){
- const q=($("currencySearch").value||"").toLowerCase();
- const list=activeCurrencies().filter(c=>(c.code+" "+c.name).toLowerCase().includes(q));
- $("currencyTable").innerHTML=`<table><thead><tr><th>Código</th><th>Moneda</th><th>Símbolo</th><th>Estado</th></tr></thead><tbody>${list.map(c=>`<tr><td>${esc(c.code)}</td><td>${esc(c.name)}</td><td>${esc(c.symbol)}</td><td><span class="pill">Activa</span></td></tr>`).join("")}</tbody></table><p class="muted">Mostrando ${list.length} de ${activeCurrencies().length} monedas activas.</p>`;
-}
-function renderPayments(){
- const list=db.payments.filter(p=>p.active);
- $("publicPayments").innerHTML=list.length?list.map(p=>`
- <div class="payment"><b>${esc(p.name)}</b> <span class="pill">${esc(p.type)}</span>
- <div class="muted">${esc(p.provider)} · ${esc(p.currency||"Moneda por confirmar")}</div>
- <p>${esc(p.details)}</p></div>`).join(""):"<div class='card'>Los métodos de pago se publicarán aquí cuando el administrador los configure.</div>";
- $("adminPaymentTable").innerHTML=db.payments.length?`<table><thead><tr><th>Método</th><th>Moneda</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>${db.payments.map(p=>`<tr><td>${esc(p.name)}<br><span class="muted">${esc(p.provider)}</span></td><td>${esc(p.currency)}</td><td>${p.active?"Visible":"Oculto"}</td><td><button class="outline" onclick="editPayment('${p.id}')">Editar</button> <button class="danger" onclick="deletePayment('${p.id}')">Eliminar</button></td></tr>`).join("")}</tbody></table>`:"<p>No has agregado métodos de pago.</p>";
-}
-function saveCurrency(){
- const old=$("editCurrencyCode").value;
- const code=$("newCode").value.trim().toUpperCase();
- const name=$("newName").value.trim(),symbol=$("newSymbol").value.trim()||code;
- const buy=number($("newBuy").value),sell=number($("newSell").value);
- if(!/^[A-Z0-9]{3,8}$/.test(code)||!name){alert("Introduce un código válido y un nombre.");return}
- const existing=db.currencies.find(c=>c.code===code);
- if(existing&&old!==code){alert("Ese código ya existe. Edita la moneda existente.");return}
- const item={code,name,symbol,buy,sell,active:$("newActive").value==="true"};
- if(old){const i=db.currencies.findIndex(c=>c.code===old);if(i>=0)db.currencies[i]=item}
- else db.currencies.push(item);
- saveDB();clearCurrencyForm();refreshAll();$("adminStatus").textContent="Moneda guardada.";
-}
-function editCurrency(code){
- const c=currency(code);if(!c)return;
- $("editCurrencyCode").value=c.code;$("newCode").value=c.code;
- $("newName").value=c.name;$("newSymbol").value=c.symbol;
- $("newBuy").value=c.buy;$("newSell").value=c.sell;
- $("newActive").value=String(c.active);
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function deleteCurrency(code){
- if(!confirm("¿Eliminar "+code+"?"))return;
- db.currencies=db.currencies.filter(c=>c.code!==code);
- saveDB();refreshAll();
-}
-function clearCurrencyForm(){
- ["editCurrencyCode","newCode","newName","newSymbol","newBuy","newSell"].forEach(id=>$(id).value="");
- $("newActive").value="true";
-}
-function savePayment(){
- const id=$("editPaymentId").value||String(Date.now());
- const item={id,name:$("payName").value.trim(),provider:$("payProvider").value.trim(),
- type:$("payType").value,currency:$("payCurrency").value,
- details:$("payDetails").value.trim(),active:$("payActive").value==="true"};
- if(!item.name){alert("Escribe el nombre del método de pago.");return}
- const i=db.payments.findIndex(p=>p.id===id);
- if(i>=0)db.payments[i]=item;else db.payments.push(item);
- saveDB();clearPaymentForm();refreshAll();$("adminStatus").textContent="Método de pago guardado.";
-}
-function editPayment(id){
- const p=db.payments.find(x=>x.id===id);if(!p)return;
- $("editPaymentId").value=p.id;$("payName").value=p.name;
- $("payProvider").value=p.provider;$("payType").value=p.type;
- $("payCurrency").value=p.currency;$("payDetails").value=p.details;
- $("payActive").value=String(p.active);
-}
-function deletePayment(id){
- if(!confirm("¿Eliminar este método de pago?"))return;
- db.payments=db.payments.filter(p=>p.id!==id);saveDB();refreshAll();
-}
-function clearPaymentForm(){
- ["editPaymentId","payName","payProvider","payDetails"].forEach(id=>$(id).value="");
- $("payActive").value="true";
-}
-function commissionCalc(){
- const amount=Math.max(0,number($("commAmount").value));
- const percent=Math.max(0,number($("commPercent").value));
- const fixed=Math.max(0,number($("commFixed").value));
- const costs=Math.max(0,number($("commCosts").value));
- const fee=amount*percent/100+fixed;
- const payer=$("commPayer").value;
- const gross=payer==="client"?fee:0;
- const businessPaid=payer==="business"?fee:0;
- const net=gross-businessPaid-costs;
- $("commResult").textContent="$"+fmt(fee,2);
- $("commBreakdown").textContent=`Ingreso por comisión: $${fmt(gross)} · Costes: $${fmt(costs+businessPaid)} · Neto estimado: $${fmt(net)}`;
- return {amount,fee,costs:costs+businessPaid,net,payer};
-}
-function recordCommission(){
- const c=commissionCalc();
- db.operations.push({id:String(Date.now()),client:"Operación calculada",
- type:"Cambio de divisas",amount:c.amount,commission:c.fee,costs:c.costs,
- net:c.net,status:"Registrada",date:new Date().toISOString()});
- saveDB();refreshAll();$("adminStatus").textContent="Operación registrada.";
-}
-function addOperation(){
- const amount=Math.max(0,number($("opAmount").value));
- const commission=Math.max(0,number($("opCommission").value));
- const costs=Math.max(0,number($("opCosts").value));
- if(!amount){alert("Introduce un monto válido.");return}
- db.operations.push({id:String(Date.now()),client:$("opClient").value.trim()||"Sin referencia",
- type:$("opType").value,amount,commission,costs,net:commission-costs,
- status:$("opStatus").value,date:new Date().toISOString()});
- saveDB();refreshAll();
- ["opClient","opAmount","opCommission","opCosts"].forEach(id=>$(id).value="");
-}
-function deleteOperation(id){
- if(!confirm("¿Eliminar esta operación del registro local?"))return;
- db.operations=db.operations.filter(o=>o.id!==id);saveDB();refreshAll();
-}
-function operationsHTML(){
- return db.operations.length?`<table><thead><tr><th>Fecha / referencia</th><th>Tipo</th><th>Monto USD</th><th>Comisión</th><th>Costes</th><th>Neto</th><th>Estado</th><th></th></tr></thead><tbody>${db.operations.map(o=>`<tr><td>${esc(new Date(o.date).toLocaleDateString())}<br>${esc(o.client)}</td><td>${esc(o.type)}</td><td>${fmt(o.amount)}</td><td>${fmt(o.commission)}</td><td>${fmt(o.costs)}</td><td>${fmt(o.net)}</td><td>${esc(o.status)}</td><td><button class="danger" onclick="deleteOperation('${o.id}')">×</button></td></tr>`).join("")}</tbody></table>`:"<p>No hay operaciones registradas.</p>";
-}
-function renderOperations(){
- $("opsTable").innerHTML=operationsHTML();$("opsTable2").innerHTML=operationsHTML();
- const ops=db.operations;
- $("statOps").textContent=ops.length;
- $("statGross").textContent="$"+fmt(ops.reduce((s,o)=>s+number(o.commission),0));
- $("statCosts").textContent="$"+fmt(ops.reduce((s,o)=>s+number(o.costs),0));
- $("statNet").textContent="$"+fmt(ops.reduce((s,o)=>s+number(o.net),0));
-}
-function renderAdminCurrencies(){
- $("adminCurrencyTable").innerHTML=`<table><thead><tr><th>Moneda</th><th>Compra</th><th>Venta</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>${db.currencies.map(c=>`<tr><td>${esc(c.code)}<br>${esc(c.name)}</td><td>${fmt(c.buy,4)}</td><td>${fmt(c.sell,4)}</td><td>${c.active?"Activa":"Inactiva"}</td><td><button class="outline" onclick="editCurrency('${c.code}')">Editar</button> <button class="danger" onclick="deleteCurrency('${c.code}')">Eliminar</button></td></tr>`).join("")}</tbody></table>`;
-}
-function renderDashboard(){
- $("statCurrencies").textContent=db.currencies.length;
- $("statPayments").textContent=db.payments.length;
- renderAdminCurrencies();renderPayments();renderOperations();
- $("setName").value=db.name;$("setPhone").value=db.phone;
- $("setHero").value=db.hero;$("setNote").value=db.note;
-}
-function saveSettings(){
- db.name=$("setName").value.trim()||"Adrian Cambio";
- db.phone=$("setPhone").value.replace(/\D/g,"");
- db.hero=$("setHero").value.trim();db.note=$("setNote").value.trim();
- saveDB();refreshAll();$("settingsStatus").textContent="Configuración guardada.";
-}
-function changeCredentials(){
- const u=$("newAdminUser").value.trim(),p=$("newAdminPass").value;
- if(u.length<3||p.length<10){$("settingsStatus").textContent="Usa un usuario de al menos 3 caracteres y contraseña de al menos 10.";return}
- db.adminUser=u;db.adminPass=p;saveDB();
- $("newAdminUser").value="";$("newAdminPass").value="";
- $("settingsStatus").textContent="Credenciales locales actualizadas. No son seguras frente a inspección del código.";
-}
-function exportData(){
- const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
- const url=URL.createObjectURL(blob),a=document.createElement("a");
- a.href=url;a.download="adrian-cambio-respaldo.json";a.click();URL.revokeObjectURL(url);
-}
-$("importFile").addEventListener("change",async e=>{
- const file=e.target.files[0];if(!file)return;
- try{
-  const imported=JSON.parse(await file.text());
-  if(!Array.isArray(imported.currencies)||!Array.isArray(imported.payments)||!Array.isArray(imported.operations))throw Error();
-  if(!confirm("Importar reemplazará la configuración actual. ¿Continuar?"))return;
-  db={...structuredClone(DEFAULTS),...imported};saveDB();refreshAll();alert("Respaldo importado.");
- }catch(err){alert("El archivo no parece ser un respaldo válido de Adrian Cambio.")}
- e.target.value="";
-});
-function resetEverything(){
- if(!confirm("Esto borrará monedas, pagos, operaciones y configuración de este navegador. ¿Continuar?"))return;
- localStorage.removeItem(STORE);db=structuredClone(DEFAULTS);initCurrencies();refreshAll();logout();
-}
-function openAdmin(){
- $("adminModal").classList.remove("hidden");
- $("loginView").classList.remove("hidden");$("dashboard").classList.add("hidden");
- $("loginStatus").textContent="";$("loginPass").value="";
-}
-function closeAdmin(){$("adminModal").classList.add("hidden")}
-function logout(){authenticated=false;openAdmin();$("loginUser").value=""}
-$("loginForm").addEventListener("submit",e=>{
- e.preventDefault();
- if($("loginUser").value===db.adminUser&&$("loginPass").value===db.adminPass){
-  authenticated=true;$("loginView").classList.add("hidden");
-  $("dashboard").classList.remove("hidden");renderDashboard();
- }else{$("loginStatus").textContent="Usuario o contraseña incorrectos.";$("loginPass").value=""}
-});
-$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAdmin()});
-document.querySelectorAll(".tabs button").forEach(btn=>btn.addEventListener("click",()=>{
- document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
- document.querySelectorAll(".adminSection").forEach(s=>s.classList.remove("active"));
- btn.classList.add("active");$(btn.dataset.tab).classList.add("active");
-}));
-$("requestForm").addEventListener("submit",e=>{
- e.preventDefault();
- const name=$("clientName").value.trim(),service=$("service").value;
- const amount=$("reqAmount").value,curr=$("reqCurrency").value;
- const details=$("details").value.trim();
- let msg=`Hola, ${db.name}. Quiero consultar una operación.\nNombre: ${name}\nServicio: ${service}`;
- if(amount)msg+=`\nMonto aproximado: ${amount} ${curr}`;
- if(details)msg+=`\nDetalles: ${details}`;
- msg+="\nPor favor, confirmen la tasa vigente y los requisitos.";
- window.open(wa(msg),"_blank","noopener,noreferrer");
-});
-["amount","from","to"].forEach(id=>$(id).addEventListener("input",calculate));
-["commAmount","commPercent","commFixed","commCosts","commPayer"].forEach(id=>$(id).addEventListener("input",commissionCalc));
-function refreshAll(){
- renderLinks();renderRates();renderCurrencySelects();renderCurrencies();
- renderPayments();renderDashboard();calculate();commissionCalc();
-}
-$("year").textContent=new Date().getFullYear();
-initCurrencies();refreshAll();
-</script>
+    <section class="section" id="enviar">
+      <div class="section-heading"><div><p class="eyebrow">ESTAMOS PARA AYUDARTE</p><h2>Solicita tu remesa</h2></div><p class="muted">Completa los datos necesarios. Se abrirá WhatsApp con tu solicitud preparada para enviarla.</p></div>
+      <form id="remitForm" class="request-form">
+        <div class="form-grid">
+          <div><label for="firstName">Nombre</label><input id="firstName" required autocomplete="given-name" placeholder="Tu nombre"></div>
+          <div><label for="lastName">Apellido</label><input id="lastName" required autocomplete="family-name" placeholder="Tu apellido"></div>
+          <div><label for="documentId">Documento de identidad</label><input id="documentId" required autocomplete="off" placeholder="Número de documento"></div>
+          <div><label for="phone">Teléfono de contacto</label><input id="phone" required type="tel" autocomplete="tel" placeholder="+ código de país"></div>
+          <div><label for="origin">País desde donde envías</label><select id="origin" required><option value="">Selecciona país</option><option>Colombia</option><option>Chile</option><option>Perú</option><option>Ecuador</option><option>Estados Unidos</option><option>España</option><option>Panamá</option><option>Otro</option></select></div>
+          <div><label for="destination">País de destino</label><select id="destination" required><option value="Venezuela">Venezuela</option></select></div>
+          <div><label for="method">Método de pago / entrega</label><select id="method" required></select></div>
+          <div><label for="sendAmount">Monto que deseas enviar</label><input id="sendAmount" type="number" min="0.01" step="any" required placeholder="100.00"></div>
+        </div>
+        <label class="consent"><input id="consent" type="checkbox" required><span>Confirmo que los datos son correctos y acepto compartir esta solicitud por WhatsApp para recibir atención.</span></label>
+        <button class="button gold-button submit-button" type="submit">Preparar solicitud en WhatsApp <span>↗</span></button>
+        <p class="form-note">No ingreses contraseñas bancarias, códigos de verificación ni claves de billeteras digitales.</p>
+      </form>
+    </section>
+    <section class="closing"><div class="closing-mark">AC</div><h2>Tu familia, siempre más cerca.</h2><p>Adri Cambios · Remesas y cambio internacional</p><a class="button outline-button" href="https://wa.me/584145811952" target="_blank" rel="noopener">Hablar por WhatsApp ↗</a></section>
+  </main>
+  <footer><a class="footer-brand" href="#inicio">ADRI <b>CAMBIOS</b></a><span>© <span id="year"></span> Adri Cambios. Todos los derechos reservados.</span><a href="admin.html">Panel de administración</a></footer>
+  <script src="site-config.js"></script><script src="app.js"></script>
 </body>
 </html>
